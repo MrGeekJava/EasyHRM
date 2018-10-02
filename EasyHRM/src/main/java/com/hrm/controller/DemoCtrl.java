@@ -24,7 +24,7 @@ import com.hrm.service.impl.DemoServiceImpl;
  *
  */
 @Controller("demoCtrl")
-@RequestMapping("/demo")
+@RequestMapping("/hrm/demo")
 public class DemoCtrl {
 	
 	@Resource(name="demoService")

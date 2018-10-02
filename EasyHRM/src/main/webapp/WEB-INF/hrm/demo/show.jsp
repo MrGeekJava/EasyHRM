@@ -23,12 +23,12 @@
 				<td><c:out value="${demo.name }" /></td>
 				<td><c:out value="${demo.hobits }" /></td>
 				<td><fmt:formatDate value="${demo.birthday }" pattern="yyyy-MM-dd"/></td>
-				<td><a href="${pageContext.request.contextPath }/demo/remove/${demo.id }">删除</a></td>
-				<td><a href="${pageContext.request.contextPath }/demo/update/${demo.id }">修改</a></td>
+				<td><a href="${pageContext.request.contextPath }/hrm/demo/remove/${demo.id }">删除</a></td>
+				<td><a href="${pageContext.request.contextPath }/hrm/demo/update/${demo.id }">修改</a></td>
 			</tr>
 		</c:forEach>
 		<tr>
-			<td><a href="${pageContext.request.contextPath }/demo/add">添加</a></td>
+			<td><a href="${pageContext.request.contextPath }/hrm/demo/add">添加</a></td>
 		</tr>
 	</table>
 </body>

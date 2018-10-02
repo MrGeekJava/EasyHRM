@@ -8,7 +8,7 @@
 
 </head>
 <body>
-	<form action="${pageContext.request.contextPath }/demo/updateOK" method="post">
+	<form action="${pageContext.request.contextPath }/hrm/demo/updateOK" method="post">
 		编号：<input name="id" value="${demo.id }" readonly="readonly"><br/>
 		姓名：<input name="name" value="${demo.name }"><br/>
 		爱好：<input name="hobits" value="${demo.hobits }" ><br/>

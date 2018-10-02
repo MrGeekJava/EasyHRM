@@ -8,7 +8,7 @@
 <title>添加 Demo</title>
 </head>
 <body>
-	<form action="${pageContext.request.contextPath }/demo/addOK" method="post">
+	<form action="${pageContext.request.contextPath }/hrm/demo/addOK" method="post">
 		编号：<input name="id"><br/>
 		姓名：<input name="name"><br/>
 		爱好：<input type="checkbox" name="hobits" value="足球">足球
