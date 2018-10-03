@@ -118,7 +118,7 @@ public class DocumentCtrl {
 			 ModelAndView mv){
 		if(flag.equals("1")){
 			// 根据id查询文档
-			Document target = documentService.findDocumentById(document.getId());
+			Document target = documentService.findDocumentById(document.getDocumentId());
 			// 设置Model数据
 			mv.addObject("document", target);
 			// 设置跳转到修改页面

@@ -2,7 +2,9 @@ package com.hrm.service;
 
 import java.util.List;
 
-import com.hrm.entity.Job;
+import org.springframework.boot.autoconfigure.batch.BatchProperties.Job;
+
+import com.hrm.entity.Position;
 import com.hrm.utils.PageModel;
 
 public interface JobService {
@@ -11,9 +13,9 @@ public interface JobService {
 	 * 获得所有职位
 	 * @return Job对象的List集合
 	 * */
-	List<Job> findAllJob();
+	List<Position> findAllJob();
 	
-	List<Job> findJob(Job job,PageModel pageModel);
+	List<Position> findJob(Position position,PageModel pageModel);
 	
 	/**
 	 * 根据id删除职位
@@ -25,19 +27,19 @@ public interface JobService {
 	 * 添加职位
 	 * @param Job 部门对象
 	 * */
-	void addJob(Job job);
+	void addJob(Position job);
 	
 	/**
 	 * 根据id查询职位
 	 * @param id
 	 * @return 职位对象
 	 * */
-	Job findJobById(Integer id);
+	Position findJobById(Integer id);
 	
 	/**
 	 * 修改职位
 	 * @param dept 部门对象
 	 * */
-	void modifyJob(Job job);
+	void modifyJob(Position job);
 
 }

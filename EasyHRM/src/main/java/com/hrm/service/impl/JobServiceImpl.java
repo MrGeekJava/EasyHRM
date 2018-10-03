@@ -3,12 +3,13 @@ package com.hrm.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.batch.BatchProperties.Job;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.hrm.entity.Job;
+import com.hrm.entity.Position;
 import com.hrm.mapper.JobMapper;
 import com.hrm.service.JobService;
 import com.hrm.utils.PageModel;
@@ -21,13 +22,13 @@ public class JobServiceImpl implements JobService {
 	private JobMapper jobMapper;
 	
 	@Override
-	public List<Job> findAllJob() {
+	public List<Position> findAllJob() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Job> findJob(Job job, PageModel pageModel) {
+	public List<Position> findJob(Position job, PageModel pageModel) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -39,19 +40,19 @@ public class JobServiceImpl implements JobService {
 	}
 
 	@Override
-	public void addJob(Job job) {
+	public void addJob(Position job) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public Job findJobById(Integer id) {
+	public Position findJobById(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void modifyJob(Job job) {
+	public void modifyJob(Position job) {
 		// TODO Auto-generated method stub
 
 	}

@@ -4,13 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.boot.autoconfigure.batch.BatchProperties.Job;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.hrm.entity.Job;
+import com.hrm.entity.Position;
 import com.hrm.service.JobService;
 import com.hrm.utils.PageModel;
 
@@ -25,14 +26,14 @@ public class JobCtrl {
 	 * 处理/login请求
 	 * */
 	@RequestMapping("/selectJob")
-	 public String selectJob(Model model, Integer pageIndex, @ModelAttribute Job job){
+	 public String selectJob(Model model, Integer pageIndex, @ModelAttribute Position job){
 		System.out.println("selectJob -->> " + job);
 		PageModel pageModel = new PageModel();
 		if(pageIndex != null){
 			pageModel.setPageIndex(pageIndex);
 		}
 		/** 查询用户信息     */
-		List<Job> jobs = jobService.findJob(job, pageModel);
+		List<Position> jobs = jobService.findJob(job, pageModel);
 		model.addAttribute("jobs", jobs);
 		model.addAttribute("pageModel", pageModel);
 		return "job/job";
@@ -67,7 +68,7 @@ public class JobCtrl {
 	@RequestMapping("/addJob")
 	 public ModelAndView addJob(
 			 String flag,
-			 @ModelAttribute Job job,
+			 @ModelAttribute Position job,
 			 ModelAndView mv){
 		if(flag.equals("1")){
 			// 设置跳转到添加页面
@@ -92,11 +93,11 @@ public class JobCtrl {
 	@RequestMapping("/updateJob")
 	 public ModelAndView updateDpet(
 			 String flag,
-			 @ModelAttribute Job job,
+			 @ModelAttribute Position job,
 			 ModelAndView mv){
 		if(flag.equals("1")){
 			// 根据id查询部门
-			Job target = jobService.findJobById(job.getId());
+			Position target = jobService.findJobById(job.getPositionId());
 			// 设置Model数据
 			mv.addObject("job", target);
 			// 设置跳转到修改页面

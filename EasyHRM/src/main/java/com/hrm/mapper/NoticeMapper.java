@@ -28,11 +28,11 @@ public interface NoticeMapper {
 //	@SelectProvider(type=NoticeDynaSqlProvider.class,method="count")
 	Integer count(Map<String, Object> params);
 		
-	@Select("select * from "+NOTICETABLE+" where ID = #{id}")
+	@Select("select * from "+NOTICETABLE+" where noticeId = #{id}")
 	Notice selectById(int id);
 	
 	// 根据id删除公告
-	@Delete(" delete from "+NOTICETABLE+" where id = #{id} ")
+	@Delete(" delete from "+NOTICETABLE+" where noticeId = #{id} ")
 	void deleteById(Integer id);
 		
 	// 动态插入公告

@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.hrm.entity.Manager;
 import com.hrm.entity.User;
 import com.hrm.mapper.UserMapper;
 import com.hrm.service.UserService;
@@ -21,18 +22,18 @@ public class UserServiceImpl implements UserService {
 	private UserMapper userMapper;
 	
 	@Override
-	public User login(String loginname, String password) {
+	public Manager login(String loginname, String password) {
 		return userMapper.selectByLoginnameAndPassword(loginname, password);
 	}
 
 	@Override
-	public User findUserById(Integer id) {
+	public Manager findUserById(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<User> findUser(User user, PageModel pageModel) {
+	public List<Manager> findUser(Manager user, PageModel pageModel) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -44,13 +45,13 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void modifyUser(User user) {
+	public void modifyUser(Manager user) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void addUser(User user) {
+	public void addUser(Manager user) {
 		// TODO Auto-generated method stub
 		
 	}

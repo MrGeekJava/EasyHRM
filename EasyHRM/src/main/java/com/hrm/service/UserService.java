@@ -2,7 +2,7 @@ package com.hrm.service;
 
 import java.util.List;
 
-import com.hrm.entity.User;
+import com.hrm.entity.Manager;
 import com.hrm.utils.PageModel;
 
 public interface UserService {
@@ -13,20 +13,20 @@ public interface UserService {
 	 * @param  password
 	 * @return User对象
 	 * */
-	User login(String loginname,String password);
+	Manager login(String loginname,String password);
 	
 	/**
 	 * 根据id查询用户
 	 * @param id
 	 * @return 用户对象
 	 * */
-	User findUserById(Integer id);
+	Manager findUserById(Integer id);
 	
 	/**
 	 * 获得所有用户
 	 * @return User对象的List集合
 	 * */
-	List<User> findUser(User user,PageModel pageModel);
+	List<Manager> findUser(Manager manager,PageModel pageModel);
 	
 	/**
 	 * 根据id删除用户
@@ -38,12 +38,12 @@ public interface UserService {
 	 * 修改用户
 	 * @param User 用户对象
 	 * */
-	void modifyUser(User user);
+	void modifyUser(Manager manager);
 	
 	/**
 	 * 添加用户
 	 * @param User 用户对象
 	 * */
-	void addUser(User user);
+	void addUser(Manager manager);
 
 }

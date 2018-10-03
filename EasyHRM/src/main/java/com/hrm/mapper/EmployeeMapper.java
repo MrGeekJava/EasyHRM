@@ -40,7 +40,7 @@ public interface EmployeeMapper {
 	void save(Employee employee);
 
 	// 根据id删除员工
-	@Delete(" delete from "+EMPLOYEETABLE+" where id = #{id} ")
+	@Delete(" delete from "+EMPLOYEETABLE+" where empId = #{id} ")
 	void deleteById(Integer id);
 		
 	// 根据id查询员工

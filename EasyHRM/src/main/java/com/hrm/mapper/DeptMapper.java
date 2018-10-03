@@ -24,11 +24,11 @@ public interface DeptMapper {
 	@Select("select * from "+DEPTTABLE+" ")
 	List<Dept> selectAllDept();
 		
-	@Select("select * from "+DEPTTABLE+" where ID = #{id}")
+	@Select("select * from "+DEPTTABLE+" where deptId = #{id}")
 	Dept selectById(int id);
 
 	// 根据id删除部门
-	@Delete(" delete from "+DEPTTABLE+" where id = #{id} ")
+	@Delete(" delete from "+DEPTTABLE+" where deptId = #{id} ")
 	void deleteById(Integer id);
 		
 	// 动态插入部门

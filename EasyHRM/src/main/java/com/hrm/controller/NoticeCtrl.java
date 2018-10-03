@@ -114,7 +114,7 @@ public class NoticeCtrl {
 			 ModelAndView mv,
 			 HttpSession session){
 		if(flag.equals("1")){
-			Notice target = noticeService.findNoticeById(notice.getId());
+			Notice target = noticeService.findNoticeById(notice.getNoticeId());
 			mv.addObject("notice",target);
 			mv.setViewName("notice/showUpdateNotice");
 		}else{

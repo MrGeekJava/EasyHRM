@@ -101,7 +101,7 @@ public class DeptCtrl {
 			 ModelAndView mv){
 		if(flag.equals("1")){
 			// 根据id查询部门
-			Dept target = deptService.findDeptById(dept.getId());
+			Dept target = deptService.findDeptById(dept.getDeptId());
 			// 设置Model数据
 			mv.addObject("dept", target);
 			// 设置跳转到修改页面

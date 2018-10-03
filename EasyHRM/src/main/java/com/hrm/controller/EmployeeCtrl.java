@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.hrm.entity.Dept;
 import com.hrm.entity.Employee;
-import com.hrm.entity.Job;
+import com.hrm.entity.Position;
 import com.hrm.service.DeptService;
 import com.hrm.service.EmployeeService;
 import com.hrm.service.JobService;
@@ -48,7 +48,7 @@ public class EmployeeCtrl {
 			pageModel.setPageIndex(pageIndex);
 		}
 		// 查询职位信息，用于模糊查询
-		List<Job> jobs = jobService.findAllJob();
+		List<Position> jobs = jobService.findAllJob();
 		// 查询部门信息 ，用于模糊查询
 		List<Dept> depts = deptService.findAllDept();
 		// 查询员工信息    
@@ -79,7 +79,7 @@ public class EmployeeCtrl {
 			 ModelAndView mv){
 		if(flag.equals("1")){
 			// 查询职位信息
-			List<Job> jobs = jobService.findAllJob();
+			List<Position> jobs = jobService.findAllJob();
 			// 查询部门信息 
 			List<Dept> depts = deptService.findAllDept();
 			// 设置Model数据
@@ -137,9 +137,9 @@ public class EmployeeCtrl {
 			 ModelAndView mv){
 		if(flag.equals("1")){
 			// 根据id查询员工
-			Employee target = employeeService.findEmployeeById(employee.getId());
+			Employee target = employeeService.findEmployeeById(employee.getEmpId());
 			// 需要查询职位信息 
-			List<Job> jobs = jobService.findAllJob();
+			List<Position> jobs = jobService.findAllJob();
 			// 需要查询部门信息 
 			List<Dept> depts = deptService.findAllDept();
 			// 设置Model数据
@@ -168,14 +168,14 @@ public class EmployeeCtrl {
 	private void genericAssociation(Integer job_id,
 			Integer dept_id,Employee employee){
 		if(job_id != null){
-			Job job = new Job();
-			job.setId(job_id);
-			employee.setJob(job);
+			Position job = new Position();
+			job.setPositionId(job_id);
+//			job.setJob(job);
 		}
 		if(dept_id != null){
 			Dept dept = new Dept();
-			dept.setId(dept_id);
-			employee.setDept(dept);
+			dept.setDeptId(dept_id);
+//			employee.setDept(dept);
 		}
 	}
 

@@ -32,11 +32,11 @@ public interface DocumentMapper {
 //	@SelectProvider(type=DocumentDynaSqlProvider.class,method="insertDocument")
 	void save(Document document);
 		
-	@Select("select * from "+DOCUMENTTABLE+" where ID = #{id}")
+	@Select("select * from "+DOCUMENTTABLE+" where documentId = #{id}")
 	Document selectById(int id);
 	
 	// 根据id删除文档
-	@Delete(" delete from "+DOCUMENTTABLE+" where id = #{id} ")
+	@Delete(" delete from "+DOCUMENTTABLE+" where documentId = #{id} ")
 	void deleteById(Integer id);
 		
 	// 动态修改文档

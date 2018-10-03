@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.hrm.entity.User;
+import com.hrm.entity.Manager;
 import com.hrm.service.UserService;
 import com.hrm.utils.HrmConstants;
 import com.hrm.utils.PageModel;
@@ -36,7 +36,7 @@ public class UserCtrl {
 			 HttpSession session,
 			 ModelAndView mv){
 		// 调用业务逻辑组件判断用户是否可以登录
-		User user = userService.login(loginname, password);
+		Manager user = userService.login(loginname, password);
 		if(user != null){
 			// 将用户保存到HttpSession当中
 			session.setAttribute(HrmConstants.USER_SESSION, user);
@@ -62,7 +62,7 @@ public class UserCtrl {
 	 * */
 	@RequestMapping("/user/selectUser")
 	 public String selectUser(Integer pageIndex,
-			 @ModelAttribute User user,
+			 @ModelAttribute Manager user,
 			 Model model){
 		System.out.println("user = " + user);
 		PageModel pageModel = new PageModel();
@@ -70,7 +70,7 @@ public class UserCtrl {
 			pageModel.setPageIndex(pageIndex);
 		}
 		/** 查询用户信息     */
-		List<User> users = userService.findUser(user, pageModel);
+		List<Manager> users = userService.findUser(user, pageModel);
 		model.addAttribute("users", users);
 		model.addAttribute("pageModel", pageModel);
 		return "user/user";
@@ -106,11 +106,11 @@ public class UserCtrl {
 	@RequestMapping("/user/updateUser")
 	 public ModelAndView updateUser(
 			 String flag,
-			 @ModelAttribute User user,
+			 @ModelAttribute Manager user,
 			 ModelAndView mv){
 		if(flag.equals("1")){
 			// 根据id查询用户
-			User target = userService.findUserById(user.getId());
+			Manager target = userService.findUserById(user.getManagerId());
 			// 设置Model数据
 			mv.addObject("user", target);
 			// 返回修改员工页面
@@ -135,7 +135,7 @@ public class UserCtrl {
 	@RequestMapping("/user/addUser")
 	 public ModelAndView addUser(
 			 String flag,
-			 @ModelAttribute User user,
+			 @ModelAttribute Manager user,
 			 ModelAndView mv){
 		if(flag.equals("1")){
 			// 设置跳转到添加页面

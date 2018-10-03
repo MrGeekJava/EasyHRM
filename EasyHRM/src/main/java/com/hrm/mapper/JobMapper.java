@@ -1,23 +1,24 @@
 package com.hrm.mapper;
 
-import static com.hrm.utils.HrmConstants.JOBTABLE;
+import static com.hrm.utils.HrmConstants.POSITIONTABLE;
 
 import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.boot.autoconfigure.batch.BatchProperties.Job;
 import org.springframework.stereotype.Repository;
 
-import com.hrm.entity.Job;
+import com.hrm.entity.Position;
 
 @Repository("jobMapper")
 public interface JobMapper {
 
-	@Select("select * from "+JOBTABLE+" where ID = #{id}")
+	@Select("select * from "+POSITIONTABLE+" where positionId = #{id}")
 	Job selectById(int id);
 	
-	@Select("select * from "+JOBTABLE+" ")
+	@Select("select * from "+POSITIONTABLE+" ")
 	List<Job> selectAllJob();
 
 	// 动态查询
@@ -28,15 +29,15 @@ public interface JobMapper {
 	Integer count(Map<String, Object> params);
 	
 	// 根据id删除部门
-	@Delete(" delete from "+JOBTABLE+" where id = #{id} ")
+	@Delete(" delete from "+POSITIONTABLE+" where positionId = #{id} ")
 	void deleteById(Integer id);
 	
 	// 动态插入部门
 //	@SelectProvider(type=JobDynaSqlProvider.class,method="insertJob")
-	void save(Job job);
+	void save(Position position);
 	
 	// 动态修改用户
 //	@SelectProvider(type=JobDynaSqlProvider.class,method="updateJob")
-	void update(Job job);
+	void update(Position position);
 	
 }

@@ -1,22 +1,25 @@
 package com.hrm.entity;
 
+import java.util.Date;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class Employee implements java.io.Serializable{
 
-	private Integer id;			// id
-	private Dept dept;			// 部门
-	private Job job;			// 职位
-	private String name;		// 名称
-	private String cardId;		// 身份证
+	private Integer empId;			// 员工Id
+	private Integer positionId;		// 职位Id
+	private Integer deptId;			// 部门Id
+	private String name;		// 员工名称
+	private int gender;			//员工性别（1男，0女）
+	private String codeId;		//身份证
 	private String address;		// 地址
 	private String postCode;	// 邮政编码
-	private String tel;			// 电话
-	private String phone;		// 手机
-	private String qqNum;		// qq
+	private String telephone;	// 手机号码
 	private String email;		// 邮箱
-	private Integer sex;		// 性别
 	private String party;		// 政治面貌
+	private String major;		//专业
+	
+	
 	/**
 	 *  使用@ModelAttribute接收参数时
 	 *  form表单中有日期,Spring不知道该如何转换,
@@ -25,149 +28,117 @@ public class Employee implements java.io.Serializable{
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private java.util.Date birthday;	//生日
 	private String race;				// 名族
-	private String education;			// 学历
-	private String speciality;			// 专业
-	private String hobby;				// 爱好
+	private double basePay;				//基本工资
 	private String remark;				// 备注
-	private java.util.Date createDate;	// 建档日期
 	// 无参数构造器
 	public Employee() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	// setter和getter方法
-	public void setId(Integer id){
-		this.id = id;
+	public Integer getEmpId() {
+		return empId;
 	}
-	public Integer getId(){
-		return this.id;
+	public void setEmpId(Integer empId) {
+		this.empId = empId;
 	}
-
-	public Dept getDept() {
-		return dept;
+	public Integer getPositionId() {
+		return positionId;
 	}
-	public void setDept(Dept dept) {
-		this.dept = dept;
+	public void setPositionId(Integer positionId) {
+		this.positionId = positionId;
 	}
-	public Job getJob() {
-		return job;
+	public Integer getDeptId() {
+		return deptId;
 	}
-	public void setJob(Job job) {
-		this.job = job;
+	public void setDeptId(Integer deptId) {
+		this.deptId = deptId;
 	}
-	public void setName(String name){
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
 		this.name = name;
 	}
-	public String getName(){
-		return this.name;
+	public int getGender() {
+		return gender;
 	}
-	public void setCardId(String cardId){
-		this.cardId = cardId;
+	public void setGender(int gender) {
+		this.gender = gender;
 	}
-	public String getCardId(){
-		return this.cardId;
+	public String getCodeId() {
+		return codeId;
 	}
-	public void setAddress(String address){
+	public void setCodeId(String codeId) {
+		this.codeId = codeId;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getAddress(){
-		return this.address;
+	public String getPostCode() {
+		return postCode;
 	}
-	public void setPostCode(String postCode){
+	public void setPostCode(String postCode) {
 		this.postCode = postCode;
 	}
-	public String getPostCode(){
-		return this.postCode;
+	public String getTelephone() {
+		return telephone;
 	}
-	public void setTel(String tel){
-		this.tel = tel;
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
 	}
-	public String getTel(){
-		return this.tel;
+	public String getEmail() {
+		return email;
 	}
-	public void setPhone(String phone){
-		this.phone = phone;
-	}
-	public String getPhone(){
-		return this.phone;
-	}
-	public void setQqNum(String qqNum){
-		this.qqNum = qqNum;
-	}
-	public String getQqNum(){
-		return this.qqNum;
-	}
-	public void setEmail(String email){
+	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getEmail(){
-		return this.email;
+	public String getParty() {
+		return party;
 	}
-	public void setSex(Integer sex){
-		this.sex = sex;
-	}
-	public Integer getSex(){
-		return this.sex;
-	}
-	public void setParty(String party){
+	public void setParty(String party) {
 		this.party = party;
 	}
-	public String getParty(){
-		return this.party;
+	public String getMajor() {
+		return major;
 	}
-	public void setBirthday(java.util.Date birthday){
+	public void setMajor(String major) {
+		this.major = major;
+	}
+	public java.util.Date getBirthday() {
+		return birthday;
+	}
+	public void setBirthday(java.util.Date birthday) {
 		this.birthday = birthday;
 	}
-	public java.util.Date getBirthday(){
-		return this.birthday;
+	public String getRace() {
+		return race;
 	}
-	public void setRace(String race){
+	public void setRace(String race) {
 		this.race = race;
 	}
-	public String getRace(){
-		return this.race;
+	public double getBasePay() {
+		return basePay;
 	}
-	public void setEducation(String education){
-		this.education = education;
+	public void setBasePay(double basePay) {
+		this.basePay = basePay;
 	}
-	public String getEducation(){
-		return this.education;
+	public String getRemark() {
+		return remark;
 	}
-	public void setSpeciality(String speciality){
-		this.speciality = speciality;
-	}
-	public String getSpeciality(){
-		return this.speciality;
-	}
-	public void setHobby(String hobby){
-		this.hobby = hobby;
-	}
-	public String getHobby(){
-		return this.hobby;
-	}
-	public void setRemark(String remark){
+	public void setRemark(String remark) {
 		this.remark = remark;
-	}
-	public String getRemark(){
-		return this.remark;
-	}
-	public void setCreateDate(java.util.Date createDate){
-		this.createDate = createDate;
-	}
-	public java.util.Date getCreateDate(){
-		return this.createDate;
 	}
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", dept=" + dept + ", job=" + job
-				+ ", name=" + name + ", cardId=" + cardId + ", address="
-				+ address + ", postCode=" + postCode + ", tel=" + tel
-				+ ", phone=" + phone + ", qqNum=" + qqNum + ", email=" + email
-				+ ", sex=" + sex + ", party=" + party + ", birthday="
-				+ birthday + ", race=" + race + ", education=" + education
-				+ ", speciality=" + speciality + 
-				", hobby=" + hobby + ", remark=" + remark + ", createDate="
-				+ createDate + "]";
+		return "Employee [empId=" + empId + ", positionId=" + positionId + ", deptId=" + deptId + ", name=" + name
+				+ ", gender=" + gender + ", codeId=" + codeId + ", address=" + address + ", postCode=" + postCode
+				+ ", telephone=" + telephone + ", email=" + email + ", party=" + party + ", major=" + major
+				+ ", birthday=" + birthday + ", race=" + race + ", basePay=" + basePay + ", remark=" + remark + "]";
 	}
+	
 
 }

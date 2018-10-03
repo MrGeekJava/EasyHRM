@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.hrm.entity.User;
+import com.hrm.entity.Manager;
 import com.hrm.utils.HrmConstants;
 
 /** 
@@ -62,7 +62,7 @@ public class AuthorizedInterceptor implements HandlerInterceptor {
         /** 拦截请求 */
         if (!flag){
         	/** 1.获取session中的用户  */
-        	User user = (User) request.getSession().getAttribute(HrmConstants.USER_SESSION);
+        	Manager user = (Manager) request.getSession().getAttribute(HrmConstants.USER_SESSION);
         	/** 2.判断用户是否已经登录 */
         	if(user == null){
         		 /** 如果用户没有登录，跳转到登录页面 */

@@ -3,7 +3,8 @@ package com.hrm.entity;
 
 public class Notice implements java.io.Serializable{
 
-	private Integer id;		// 编号
+	private Integer noticeId;		// 公告ID
+	private String managerId;		//管理员ID
 	private String title;   // 标题
 	private String content; // 内容
 	private java.util.Date createDate;  // 发布日期
@@ -14,29 +15,35 @@ public class Notice implements java.io.Serializable{
 		// TODO Auto-generated constructor stub
 	}
 	// setter和getter方法
-	public void setId(Integer id){
-		this.id = id;
+	public Integer getNoticeId() {
+		return noticeId;
 	}
-	public Integer getId(){
-		return this.id;
+	public void setNoticeId(Integer noticeId) {
+		this.noticeId = noticeId;
 	}
-	public void setTitle(String title){
+	public String getManagerId() {
+		return managerId;
+	}
+	public void setManagerId(String managerId) {
+		this.managerId = managerId;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getTitle(){
-		return this.title;
+	public String getContent() {
+		return content;
 	}
-	public void setContent(String content){
+	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getContent(){
-		return this.content;
+	public java.util.Date getCreateDate() {
+		return createDate;
 	}
-	public void setCreateDate(java.util.Date createDate){
+	public void setCreateDate(java.util.Date createDate) {
 		this.createDate = createDate;
-	}
-	public java.util.Date getCreateDate(){
-		return this.createDate;
 	}
 	public User getUser() {
 		return user;
@@ -46,10 +53,9 @@ public class Notice implements java.io.Serializable{
 	}
 	@Override
 	public String toString() {
-		return "Notice [id=" + id + ", title=" + title + ", content=" + content
+		return "Notice [noticeId=" + noticeId + ", managerId=" + managerId + ", title=" + title + ", content=" + content
 				+ ", createDate=" + createDate + ", user=" + user + "]";
 	}
-	
 	
 
 }
