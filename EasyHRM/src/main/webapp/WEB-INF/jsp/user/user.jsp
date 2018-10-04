@@ -111,14 +111,14 @@
 			</tr>
 			<c:forEach items="${requestScope.users}" var="user" varStatus="stat">
 				<tr id="data_${stat.index}" align="center" class="main_trbg" onMouseOver="move(this);" onMouseOut="out(this);">
-					<td><input type="checkbox" id="box_${stat.index}" value="${user.id}"></td>
-					 <td>${user.loginname }</td>
+					<td><input type="checkbox" id="box_${stat.index}" value="${user.managerId}"></td>
+					 <td>${user.loginName }</td>
 					  <td>${user.password }</td>
 					  <td>${user.username }</td>
 					  <td>${user.status }</td>
 					  <td><f:formatDate value="${user.createDate}" 
 								type="date" dateStyle="long"/></td>
-					 <td align="center" width="40px;"><a href="${ctx}/user/updateUser?flag=1&id=${user.id}">
+					 <td align="center" width="40px;"><a href="${ctx}/user/updateUser?flag=1&managerId=${user.managerId}">
 							<img title="修改" src="${ctx}/images/update.gif"/></a>
 					  </td>
 				</tr>

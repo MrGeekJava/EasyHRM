@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.hrm.entity.Manager;
 import com.hrm.entity.Notice;
-import com.hrm.entity.User;
 import com.hrm.service.NoticeService;
 import com.hrm.utils.HrmConstants;
 import com.hrm.utils.PageModel;
 
 @Controller("noticeCtrl")
-@RequestMapping("hrm/notice")
+//@RequestMapping("hrm/notice")
 public class NoticeCtrl {
 	
 	@Resource(name="noticeService")
@@ -27,7 +27,7 @@ public class NoticeCtrl {
 	/**
 	 * 处理/login请求
 	 * */
-	@RequestMapping("/selectNotice")
+	@RequestMapping("/notice/selectNotice")
 	 public String selectNotice(Model model,Integer pageIndex,
 			 @ModelAttribute Notice notice){
 		PageModel pageModel = new PageModel();
@@ -47,7 +47,7 @@ public class NoticeCtrl {
 	 * @param Integer id  要显示的公告id
 	 * @param Model model
 	 * */
-	@RequestMapping("/previewNotice")
+	@RequestMapping("/notice/previewNotice")
 	 public String previewNotice(
 			 Integer id,Model model){
 		
@@ -63,7 +63,7 @@ public class NoticeCtrl {
 	 * @param String ids 需要删除的id字符串
 	 * @param ModelAndView mv
 	 * */
-	@RequestMapping("/removeNotice")
+	@RequestMapping("/notice/removeNotice")
 	 public ModelAndView removeNotice(String ids,ModelAndView mv){
 		// 分解id字符串
 		String[] idArray = ids.split(",");
@@ -83,7 +83,7 @@ public class NoticeCtrl {
 	 * @param Notice notice  要添加的公告对象
 	 * @param ModelAndView mv
 	 * */
-	@RequestMapping("/addNotice")
+	@RequestMapping("/notice/addNotice")
 	 public ModelAndView addNotice(
 			 String flag,
 			 @ModelAttribute Notice notice,
@@ -92,7 +92,7 @@ public class NoticeCtrl {
 		if(flag.equals("1")){
 			mv.setViewName("notice/showAddNotice");
 		}else{
-			User user = (User) session.getAttribute(HrmConstants.USER_SESSION);
+			Manager user = (Manager) session.getAttribute(HrmConstants.USER_SESSION);
 			notice.setUser(user);
 			noticeService.addNotice(notice);
 			mv.setViewName("redirect:/notice/selectNotice");
@@ -107,7 +107,7 @@ public class NoticeCtrl {
 	 * @param Notice notice  要添加的公告对象
 	 * @param ModelAndView mv
 	 * */
-	@RequestMapping("/updateNotice")
+	@RequestMapping("/notice/updateNotice")
 	 public ModelAndView updateNotice(
 			 String flag,
 			 @ModelAttribute Notice notice,

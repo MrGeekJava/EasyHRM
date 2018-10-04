@@ -18,13 +18,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.hrm.entity.Document;
-import com.hrm.entity.User;
+import com.hrm.entity.Manager;
 import com.hrm.service.DocumentService;
 import com.hrm.utils.HrmConstants;
 import com.hrm.utils.PageModel;
 
 @Controller("documentCtrl")
-@RequestMapping("/hrm/document")
+//@RequestMapping("/hrm/document")
 public class DocumentCtrl {
 	
 	@Resource(name="documentService")
@@ -33,7 +33,7 @@ public class DocumentCtrl {
 	/**
 	 * 处理/login请求
 	 * */
-	@RequestMapping("/selectDocument")
+	@RequestMapping("/document/selectDocument")
 	 public String selectDocument(Model model, Integer pageIndex, @ModelAttribute  Document document){
 		PageModel pageModel = new PageModel();
 		if(pageIndex != null){
@@ -53,7 +53,7 @@ public class DocumentCtrl {
 	 * @param Notice notice  要添加的公告对象
 	 * @param ModelAndView mv
 	 * */
-	@RequestMapping("/addDocument")
+	@RequestMapping("/document/addDocument")
 	 public ModelAndView addDocument(
 			 String flag,
 			 @ModelAttribute Document document,
@@ -75,7 +75,7 @@ public class DocumentCtrl {
 			// 设置fileName
 			document.setFileName(fileName);
 			// 设置关联的User对象
-			User user = (User) session.getAttribute(HrmConstants.USER_SESSION);
+			Manager user = (Manager) session.getAttribute(HrmConstants.USER_SESSION);
 			document.setUser(user);
 			// 插入数据库
 			documentService.addDocument(document);
@@ -91,7 +91,7 @@ public class DocumentCtrl {
 	 * @param String ids 需要删除的id字符串
 	 * @param ModelAndView mv
 	 * */
-	@RequestMapping("/removeDocument")
+	@RequestMapping("/document/removeDocument")
 	 public ModelAndView removeDocument(String ids,ModelAndView mv){
 		// 分解id字符串
 		String[] idArray = ids.split(",");
@@ -111,7 +111,7 @@ public class DocumentCtrl {
 	 * @param Document document 要修改文档的对象
 	 * @param ModelAndView mv
 	 * */
-	@RequestMapping("/updateDocument")
+	@RequestMapping("/document/updateDocument")
 	 public ModelAndView updateDocument(
 			 String flag,
 			 @ModelAttribute Document document,
@@ -139,7 +139,7 @@ public class DocumentCtrl {
 	 * @param Document document 要修改文档的对象
 	 * @param ModelAndView mv
 	 * */
-	@RequestMapping("/downLoad")
+	@RequestMapping("/document/downLoad")
 	 public ResponseEntity<byte[]>  downLoad(
 			 Integer id,
 			 HttpSession session) throws Exception{

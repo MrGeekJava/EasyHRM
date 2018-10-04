@@ -7,7 +7,7 @@ public class Manager implements java.io.Serializable{
 	private String loginName;		//管理员名
 	private String username;		//用户名
 	private String password;		//密码
-	private int status;				//状态（1.正常，0禁用）
+	private String status;			//状态（1.正常，0禁用）
 	private Date createDate;		//创建时间
 	private int role;				//角色
 	private String head;			//头像
@@ -30,10 +30,10 @@ public class Manager implements java.io.Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public int getStatus() {
+	public String getStatus() {
 		return status;
 	}
-	public void setStatus(int status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 	public Date getCreateDate() {

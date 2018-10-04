@@ -8,7 +8,7 @@ public class Notice implements java.io.Serializable{
 	private String title;   // 标题
 	private String content; // 内容
 	private java.util.Date createDate;  // 发布日期
-	private User user;		// 发布人
+	private Manager user;		// 发布人
 	// 无参数构造器
 	public Notice() {
 		super();
@@ -45,10 +45,12 @@ public class Notice implements java.io.Serializable{
 	public void setCreateDate(java.util.Date createDate) {
 		this.createDate = createDate;
 	}
-	public User getUser() {
+		
+	
+	public Manager getUser() {
 		return user;
 	}
-	public void setUser(User user) {
+	public void setUser(Manager user) {
 		this.user = user;
 	}
 	@Override

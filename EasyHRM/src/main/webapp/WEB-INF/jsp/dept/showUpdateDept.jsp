@@ -26,6 +26,7 @@
 			$("#deptForm").submit(function(){
 				var name = $("#name");
 				var remark = $("#remark");
+				var duty = $("#duty");
 				var msg = "";
 				if ($.trim(name.val()) == ""){
 					msg = "部门名称不能为空！";
@@ -33,6 +34,9 @@
 				}else if ($.trim(remark.val()) == ""){
 					msg = "详细描述不能为空！";
 					remark.focus();
+				}else if ($.trim(duty.val()) == ""){
+					msg = "部门职责不能为空！";
+					duty.focus();
 				}
 				if (msg != ""){
 					$.ligerDialog.error(msg);
@@ -62,13 +66,14 @@
     	 <form action="${ctx}/dept/updateDept" id="deptForm" method="post">
     	 	<!-- 隐藏表单，flag表示添加标记 -->
     	 	<input type="hidden" name="flag" value="2">
-    	 	<input type="hidden" name="id" value="${dept.id }">
+    	 	<input type="hidden" name="deptId" value="${dept.deptId }">
 		  <table width="100%" border="0" cellpadding="0" cellspacing="10" class="main_tab">
 		    <tr><td class="font3 fftd">
 		    	<table>
 		    		<tr>
 		    			<td class="font3 fftd">部门名称：<input type="text" name="name" id="name" size="20" value="${dept.name }"/></td>
 		    			<td class="font3 fftd">详细描述：<input type="text" name="remark" id="remark" size="20" value="${dept.remark }"/></td>
+		    			<td class="font3 fftd">部门职责：<input type="text" name="remark" id="remark" size="40"  value="${dept.duty }"/></td>
 		    		</tr>
 		    			
 		    	</table>

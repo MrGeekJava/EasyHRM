@@ -109,14 +109,16 @@
 			  <td><input type="checkbox" name="checkAll" id="checkAll"></td>
 			  <td>部门名称</td>
 			  <td>详细信息</td>
+			  <td>部门职责</td>
 			  <td align="center">操作</td>
 			</tr>
 			<c:forEach items="${requestScope.depts}" var="dept" varStatus="stat">
 				<tr id="data_${stat.index}" align="center" class="main_trbg" onMouseOver="move(this);" onMouseOut="out(this);">
-					<td><input type="checkbox" id="box_${stat.index}" value="${dept.id}"></td>
+					<td><input type="checkbox" id="box_${stat.index}" value="${dept.deptId}"></td>
 					 <td>${dept.name }</td>
 					  <td>${dept.remark }</td>
-					 <td align="center" width="40px;"><a href="${ctx}/dept/updateDept?flag=1&id=${dept.id}">
+					  <td>${dept.duty }</td>
+					 <td align="center" width="40px;"><a href="${ctx}/dept/updateDept?flag=1&deptId=${dept.deptId}">
 							<img title="修改" src="${ctx}/images/update.gif"/></a>
 					  </td>
 				</tr>

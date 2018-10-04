@@ -10,7 +10,7 @@
 		<meta http-equiv="expires" content="0" />    
 		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3" />
 		<meta http-equiv="description" content="This is my page" />
-		<link href="fkjava.ico" rel="shortcut icon" type="image/x-icon" />
+		<link href="fkjava.ico" rel="shortcut icon" type="image/x-icon" />		
 		<link href="${ctx }/css/css.css" type="text/css" rel="stylesheet" />
 		<script type="text/javascript" src="${ctx }/js/jquery-1.11.0.js"></script>
         <script type="text/javascript" src="${ctx }/js/jquery-migrate-1.2.1.js"></script>
@@ -56,7 +56,7 @@
 				 <form id="documentForm" name="documentForm" action="${ctx }/document/updateDocument" enctype="multipart/form-data" method="post">
                         <!-- 隐藏表单，flag表示添加标记 -->
     	 			<input type="hidden" name="flag" value="2">
-    	 			<input type="hidden" name="id" value="${document.id }">
+    	 			<input type="hidden" name="id" value="${document.documentId }">
 				  <table width="100%" border="0" cellpadding="0" cellspacing="10" class="main_tab">
                         
 					    <tr><td class="font3 fftd">

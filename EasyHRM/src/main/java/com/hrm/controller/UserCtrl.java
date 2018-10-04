@@ -3,6 +3,8 @@ package com.hrm.controller;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -104,25 +106,26 @@ public class UserCtrl {
 	 * @param ModelAndView mv
 	 * */
 	@RequestMapping("/user/updateUser")
-	 public ModelAndView updateUser(
+	 public String updateUser(
 			 String flag,
 			 @ModelAttribute Manager user,
-			 ModelAndView mv){
+			 Model mv){
 		if(flag.equals("1")){
 			// 根据id查询用户
+			System.out.println(user.getManagerId());
 			Manager target = userService.findUserById(user.getManagerId());
 			// 设置Model数据
-			mv.addObject("user", target);
+			mv.addAttribute("user", target);
 			// 返回修改员工页面
-			mv.setViewName("user/showUpdateUser");
+			return "user/showUpdateUser";
 		}else{
 			// 执行修改操作
+			System.out.println(user);
 			userService.modifyUser(user);
 			// 设置客户端跳转到查询请求
-			mv.setViewName("redirect:/user/selectUser");
+			return "redirect:/user/selectUser";
 		}
 		// 返回
-		return mv;
 	}
 	
 	
@@ -133,20 +136,38 @@ public class UserCtrl {
 	 * @param ModelAndView mv
 	 * */
 	@RequestMapping("/user/addUser")
-	 public ModelAndView addUser(
+	 public String addUser(
 			 String flag,
 			 @ModelAttribute Manager user,
-			 ModelAndView mv){
+			 Model mv){
 		if(flag.equals("1")){
 			// 设置跳转到添加页面
-			mv.setViewName("user/showAddUser");
+			return "user/showAddUser";
 		}else{
 			// 执行添加操作
+//			System.out.println(user);
 			userService.addUser(user);
 			// 设置客户端跳转到查询请求
-			mv.setViewName("redirect:/user/selectUser");
+			return "redirect:/user/selectUser";
 		}
-		// 返回
+	}
+	
+	/**
+	  * 用户注销
+	 * @param request
+	 * @param response
+	 * @param mv
+	 * @return
+	 */
+	@RequestMapping(value="/user/logoff")
+	public ModelAndView logoffUser(
+			HttpServletRequest request, HttpServletResponse response,
+			ModelAndView mv){
+		Manager user = (Manager) request.getSession().getAttribute(HrmConstants.USER_SESSION);
+   		if(user!=null) {
+       		request.getSession().removeAttribute(HrmConstants.USER_SESSION);
+   		}
+			mv.setViewName("redirect:/index.jsp");
 		return mv;
 	}
 

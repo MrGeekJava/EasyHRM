@@ -15,7 +15,7 @@ import com.hrm.service.DeptService;
 import com.hrm.utils.PageModel;
 
 @Controller("deptCtrl")
-@RequestMapping("/hrm/dept")
+//@RequestMapping("/hrm")
 public class DeptCtrl {
 	
 	@Resource(name="deptService")
@@ -24,7 +24,7 @@ public class DeptCtrl {
 	/**
 	 * 处理/login请求
 	 * */
-	@RequestMapping("/selectDept")
+	@RequestMapping("/dept/selectDept")
 	public String selectDept(Model model, Integer pageIndex, @ModelAttribute Dept dept){
 		System.out.println("selectDept -->>");
 		System.out.println("pageIndex = " + pageIndex);
@@ -49,7 +49,7 @@ public class DeptCtrl {
 	 * @param String ids 需要删除的id字符串
 	 * @param ModelAndView mv
 	 * */
-	@RequestMapping("/removeDept")
+	@RequestMapping("/dept/removeDept")
 	 public ModelAndView removeDept(String ids,ModelAndView mv){
 		// 分解id字符串
 		String[] idArray = ids.split(",");
@@ -69,7 +69,7 @@ public class DeptCtrl {
 	 * @param Dept  dept  要添加的部门对象
 	 * @param ModelAndView mv
 	 * */
-	@RequestMapping("/addDept")
+	@RequestMapping("/dept/addDept")
 	 public ModelAndView addDept(
 			 String flag,
 			 @ModelAttribute Dept dept,
@@ -80,6 +80,7 @@ public class DeptCtrl {
 		}else{
 			// 执行添加操作
 			deptService.addDept(dept);
+			System.out.println("addDept"+dept);
 			// 设置客户端跳转到查询请求
 			mv.setViewName("redirect:/dept/selectDept");
 		}
@@ -94,7 +95,7 @@ public class DeptCtrl {
 	 * @param Dept dept 要修改部门的对象
 	 * @param ModelAndView mv
 	 * */
-	@RequestMapping("/updateDept")
+	@RequestMapping("/dept/updateDept")
 	 public ModelAndView updateDpet(
 			 String flag,
 			 @ModelAttribute Dept dept,
@@ -102,6 +103,7 @@ public class DeptCtrl {
 		if(flag.equals("1")){
 			// 根据id查询部门
 			Dept target = deptService.findDeptById(dept.getDeptId());
+			System.out.println("dept.getDeptId()"+dept.getDeptId());
 			// 设置Model数据
 			mv.addObject("dept", target);
 			// 设置跳转到修改页面
@@ -109,6 +111,7 @@ public class DeptCtrl {
 		}else{
 			// 执行修改操作
 			deptService.modifyDept(dept);
+			System.out.println("updateDpet"+dept);
 			// 设置客户端跳转到查询请求
 			mv.setViewName("redirect:/dept/selectDept");
 		}

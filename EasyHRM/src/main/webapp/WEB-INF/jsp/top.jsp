@@ -24,7 +24,9 @@
     	
     	$("#exit").click(function(){
     		/** parent从主界面进行退出,避免局部刷新*/
-    		parent.location = "${ctx}/logout.action";
+//     		parent.location = "${ctx}/logout.action";
+			
+    		parent.location = "${ctx }/user/logoff";
     	})
 	})
 	
@@ -39,7 +41,9 @@
 	<td class="topbg">
 	  <table width="100%" border="0" cellpadding="0" cellspacing="0">
 	    <tr>
-		  <td height="50" class="toplink" align="right"><img src="${ctx}/images/top_home.gif">&nbsp;&nbsp;<a href="javascript:void(0);">网站首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="${ctx}/images/top_exit.gif">&nbsp;&nbsp;<a href="javascript:void(0);" id="exit">注销退出</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		  <td height="50" class="toplink" align="right"><img src="${ctx}/images/top_home.gif">&nbsp;&nbsp;<a href="javascript:void(0);">网站首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  <img src="${ctx}/images/top_exit.gif">&nbsp;&nbsp;<a href="javascript:void(0);" id="exit">注销退出</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		 </td>
 		</tr>
 		<tr>
 		  <td height="30" class="topnavbg">

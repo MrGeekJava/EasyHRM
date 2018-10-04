@@ -132,7 +132,7 @@
 				</div>
 			</div>
 			<div class="page-footer" style="color: #fff">
-				兼容浏览器IE8+，最佳分辨率1280*800. <br>2015 @ 疯狂软件 http://www.fkit.org
+				兼容浏览器IE8+，最佳分辨率1280*800. <br><b>sorl</b>小组，SSM项目，人事管理
 			</div>
 		</form>
 	</div>

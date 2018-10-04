@@ -16,7 +16,7 @@ import com.hrm.service.JobService;
 import com.hrm.utils.PageModel;
 
 @Controller("jobCtrl")
-@RequestMapping("/hrm/job")
+//@RequestMapping("/hrm/job")
 public class JobCtrl {
 
 	@Resource(name="jobService")
@@ -25,7 +25,7 @@ public class JobCtrl {
 	/**
 	 * 处理/login请求
 	 * */
-	@RequestMapping("/selectJob")
+	@RequestMapping("/job/selectJob")
 	 public String selectJob(Model model, Integer pageIndex, @ModelAttribute Position job){
 		System.out.println("selectJob -->> " + job);
 		PageModel pageModel = new PageModel();
@@ -45,7 +45,7 @@ public class JobCtrl {
 	 * @param String ids 需要删除的id字符串
 	 * @param ModelAndView mv
 	 * */
-	@RequestMapping("/removeJob")
+	@RequestMapping("/job/removeJob")
 	 public ModelAndView removeJob(String ids,ModelAndView mv){
 		// 分解id字符串
 		String[] idArray = ids.split(",");
@@ -65,7 +65,7 @@ public class JobCtrl {
 	 * @param Job  job  要添加的职位对象
 	 * @param ModelAndView mv
 	 * */
-	@RequestMapping("/addJob")
+	@RequestMapping("/job/addJob")
 	 public ModelAndView addJob(
 			 String flag,
 			 @ModelAttribute Position job,
@@ -90,7 +90,7 @@ public class JobCtrl {
 	 * @param Job job 要修改部门的对象
 	 * @param ModelAndView mv
 	 * */
-	@RequestMapping("/updateJob")
+	@RequestMapping("/job/updateJob")
 	 public ModelAndView updateDpet(
 			 String flag,
 			 @ModelAttribute Position job,

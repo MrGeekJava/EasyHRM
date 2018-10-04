@@ -30,9 +30,16 @@
 				   	 $("tr[id^='submenu']").not("#"+submenuId).hide();
 				   	 /** 控制其他一级菜单的图片显示关闭  */
 				   	 $("td[id^='navbg']").not(this).removeClass().addClass("left_nav_closed");
-				   	 
-				   	 
 				})
+				
+				
+				
+				$("#sub4_Id").click(function(){
+				   	 /** 控制二级菜单显示或隐藏  */
+				   	 $("#subsubmenu4").toggle();
+				});
+				
+				
 			})
 		</script>
 	</head>
@@ -42,8 +49,11 @@
 		  <tr><td class="left_nav_top"><div class="font1">用户管理</div></td></tr>
 		  <tr valign="top">
 		    <td class="left_nav_bgshw" height="50">
+			<!-- 		    超链接先到Usercontroller控制，再根据需求查询返回到user显示，也可以显示到其他页面 -->
 			  <p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="user/selectUser" target="main">用户查询</a></img></p>
 			  <p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="user/addUser?flag=1" target="main">添加用户</a></img></p>
+			  <p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="user/uploadHead" target="main">上传头像</a></img></p>
+			  <p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="user/ctlMan" target="main">权限管理</a></img></p>
 			</td>
 		  </tr>
 		  <tr><td height="2"></td></tr>
@@ -57,7 +67,7 @@
 		  </tr>
 		  <tr><td height="2"></td></tr>
 		  
-		  <tr><td id="navbg2" class="left_nav_closed" ><div class="font1">职位管理</div></td></tr>
+		  <tr><td id="navbg2" class="left_nav_closed" ><div class="font1">岗位管理</div></td></tr>
 		  <tr valign="top" id="submenu2" style="display: none">
 		    <td class="left_nav_bgshw" height="50">
 			  <p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="job/selectJob" target="main">职位查询</a></img></p>
@@ -75,11 +85,42 @@
 		  </tr>
 		  <tr><td height="2"></td></tr>
 		  
-		  <tr><td id="navbg4" class="left_nav_closed" ><div class="font1">公告管理</div></td></tr>
-		  <tr valign="top" id="submenu4" style="display: none">
+		  <tr><td id="navbg4" class="left_nav_closed" ><div class="font1">信息管理</div></td></tr>
+<!-- 		  <tr valign="top" id="submenu4" style="display: none"> -->
+<!-- 		    <td class="left_nav_bgshw tdbtmline" height="50"> -->
+<%-- 			  <p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="${ctx }/notice/selectNotice" target="main">公告查询</a></img></p> --%>
+<%-- 			  <p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="${ctx }/notice/addNotice?flag=1" target="main">添加公告</a></img></p> --%>
+<!-- 			</td> -->
+<!-- 		  </tr> -->
+<!-- 		  <tr><td height="2"></td></tr> -->
+	 		<tr valign="top" id="submenu4" style="display: none">
+		   	 <td class="left_nav_bgshw tdbtmline" height="50">
+			  <p class="left_nav_link" id="sub4_Id"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="javascript:void(0)" target="main">公告管理</a></img>
+			  		<ul style="display: none" id="subsubmenu4">
+			  			<li><p style="padding-left:60px;"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="${ctx }/notice/selectNotice" target="main">公告查询</a></img></p></li>
+			  			<li><p style="padding-left:60px;line-height:22px;"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="${ctx }/notice/addNotice?flag=1" target="main">添加公告</a></img></p></li>
+			  		</ul>
+			  </p>
+			  <p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="javascript:void(0)" target="main">招聘管理</a></img></p>
+			  <p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="javascript:void(0)" target="main">文档管理</a></img></p>
+				</td>
+		 	 </tr>
+		  <tr><td height="2"></td></tr>
+		  
+		   <tr><td id="navbg6" class="left_nav_closed"><div class="font1">通讯录管理</div></td></tr>
+		  <tr valign="top" id="submenu6" style="display: none">
 		    <td class="left_nav_bgshw tdbtmline" height="50">
-			  <p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="${ctx }/notice/selectNotice" target="main">公告查询</a></img></p>
-			  <p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="${ctx }/notice/addNotice?flag=1" target="main">添加公告</a></img></p>
+		    	<p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="javascript:void(0)" target="main">内部通讯录</a></img></p>
+			  	<p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="javascript:void(0)" target="main">外部通讯录</a></img></p>
+			</td>
+		  </tr>
+		  <tr><td height="2"></td></tr>
+		  
+		   <tr><td id="navbg7" class="left_nav_closed"><div class="font1">考核管理</div></td></tr>
+		  <tr valign="top" id="submenu7" style="display: none">
+		    <td class="left_nav_bgshw tdbtmline" height="50">
+		    	<p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="javascript:void(0)" target="main">提交申请</a></img></p>
+			  	<p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="javascript:void(0)" target="main">审核申请</a></img></p>
 			</td>
 		  </tr>
 		  <tr><td height="2"></td></tr>
@@ -93,9 +134,9 @@
 		  </tr>
 		  <tr><td height="2"></td></tr>
 		 
-		  <tr valign="top"><td height="100%" align="center"><div class="copycct"><br /><strong>技术支持：</strong><br><strong>广东为学教育有限公司</strong><br>Http://www.fkjava.org</div></td></tr>
-		  <tr><td height="10"><img src="${ctx}/images/left_nav_bottom.gif" height="10"></img></td></tr>
-		  <tr><td height="10" bgcolor="#e5f0ff">&nbsp;</td></tr>
+<!-- 		  <tr valign="top"><td height="100%" align="center"><div class="copycct"><br /><strong>技术支持：</strong><br><strong>广东为学教育有限公司</strong><br>Http://www.fkjava.org</div></td></tr> -->
+<%-- 		  <tr><td height="10"><img src="${ctx}/images/left_nav_bottom.gif" height="10"></img></td></tr> --%>
+<!-- 		  <tr><td height="10" bgcolor="#e5f0ff">&nbsp;</td></tr> -->
 		</table>
 	</div>
 </body>

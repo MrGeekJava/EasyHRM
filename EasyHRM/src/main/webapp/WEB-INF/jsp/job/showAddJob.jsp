@@ -26,13 +26,21 @@
 			$("#jobForm").submit(function(){
 				var name = $("#name");
 				var remark = $("#remark");
+				var minSalary = $("#minSalary");
+				var maxSalary = $("#maxSalary");
 				var msg = "";
 				if ($.trim(name.val()) == ""){
 					msg = "职位名称不能为空！";
 					name.focus();
 				}else if ($.trim(remark.val()) == ""){
-					msg = "详细描述不能为空！";
+					msg = "职位描述不能为空！";
 					remark.focus();
+				}else if ($.trim(minSalary.val()) == ""){
+					msg = "最低薪资不能为空！";
+					minSalary.focus();
+				}else if ($.trim(maxSalary.val()) == ""){
+					msg = "最高薪资不能为空！";
+					maxSalary.focus();
 				}
 				if (msg != ""){
 					$.ligerDialog.error(msg);
@@ -68,6 +76,8 @@
 		    		<tr>
 		    			<td class="font3 fftd">职位名称：<input type="text" name="name" id="name" size="20"/></td>
 		    			<td class="font3 fftd">详细描述：<input type="text" name="remark" id="remark" size="20"/></td>
+		    			<td class="font3 fftd">最低薪资：<input type="text" name="minSalary" id="minSalary" size="10"/></td>
+		    			<td class="font3 fftd">最高薪资：<input type="text" name="maxSalary" id="maxSalary" size="10"/></td>
 		    		</tr>
 		    			
 		    	</table>

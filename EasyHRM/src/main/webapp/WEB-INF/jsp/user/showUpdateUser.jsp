@@ -27,7 +27,7 @@
 		$("#userForm").submit(function(){
 			var username = $("#username");
 			var status = $("#status");
-			var loginname = $("#loginname");
+			var loginname = $("#loginName");
 			var passord = $("#passord");
 			var msg = "";
 			if ($.trim(username.val()) == ""){
@@ -71,7 +71,7 @@
     	 <form action="${ctx}/user/updateUser" id="userForm" method="post">
     	 	<!-- 隐藏表单，flag表示添加标记 -->
     	 	<input type="hidden" name="flag" value="2">
-			<input type="hidden" name="id" value="${user.id }">
+			<input type="hidden" name="managerId" value="${user.managerId }">
 		  <table width="100%" border="0" cellpadding="0" cellspacing="10" class="main_tab">
 		    <tr><td class="font3 fftd">
 		    	<table>
@@ -81,7 +81,7 @@
 		    		</tr>
 		    			
 		    		<tr>
-		    			<td class="font3 fftd">登录名：<input name="loginname" id="loginname" size="20" value="${user.loginname }"/></td>
+		    			<td class="font3 fftd">登录名：<input name="loginName" id="loginName" size="20" value="${user.loginName }"/></td>
 		    			<td class="font3 fftd">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：<input name="password" id="password" size="20" value="${user.password }"/></td>
 		    		</tr>
 		    		

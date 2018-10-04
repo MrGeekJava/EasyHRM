@@ -27,7 +27,7 @@
 		$("#userForm").submit(function(){
 			var username = $("#username");
 			var status = $("#status");
-			var loginname = $("#loginname");
+			var loginname = $("#loginName");
 			var password = $("#password");
 			var msg = "";
 			if ($.trim(username.val()) == ""){
@@ -80,7 +80,7 @@
 		    		</tr>
 		    			
 		    		<tr>
-		    			<td class="font3 fftd">登录名：<input name="loginname" id="loginname" size="20" /></td>
+		    			<td class="font3 fftd">登录名：<input name="loginName" id="loginName" size="20" /></td>
 		    			<td class="font3 fftd">密&nbsp;码：<input name="password" id="password" size="20" /></td>
 		    		</tr>
 		    		

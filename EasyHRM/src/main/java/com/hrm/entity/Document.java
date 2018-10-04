@@ -12,7 +12,7 @@ public class Document implements java.io.Serializable{
 	private MultipartFile file;		// 文件
 	private String remark;			// 描述
 	private java.util.Date createDate;	// 上传时间
-	private User user;				// 上传人
+	private Manager user;				// 上传人
 	// 无参数构造器
 	public Document() {
 		super();
@@ -50,10 +50,10 @@ public class Document implements java.io.Serializable{
 	public java.util.Date getCreateDate(){
 		return this.createDate;
 	}
-	public User getUser() {
+	public Manager getUser() {
 		return user;
 	}
-	public void setUser(User user) {
+	public void setUser(Manager user) {
 		this.user = user;
 	}
 	public int getDocumentId() {

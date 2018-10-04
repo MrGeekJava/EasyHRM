@@ -108,15 +108,19 @@
 		    <tr class="main_trbg_tit" align="center">
 			  <td><input type="checkbox" name="checkAll" id="checkAll"></td>
 			  <td>职位名称</td>
-			  <td>详细信息</td>
+			  <td>职位信息</td>
+			  <td>最低薪资</td>
+			  <td>最高薪资</td>
 			  <td align="center">操作</td>
 			</tr>
 			<c:forEach items="${requestScope.jobs}" var="job" varStatus="stat">
 				<tr id="data_${stat.index}" align="center" class="main_trbg" onMouseOver="move(this);" onMouseOut="out(this);">
-					<td><input type="checkbox" id="box_${stat.index}" value="${job.id}"></td>
+					<td><input type="checkbox" id="box_${stat.index}" value="${job.positionId}"></td>
 					 <td>${job.name }</td>
 					  <td>${job.remark }</td>
-					 <td align="center" width="40px;"><a href="${ctx}/job/updateJob?flag=1&id=${job.id}">
+					  <td>${job.minSalary }</td>
+					  <td>${job.maxSalary }</td>
+					 <td align="center" width="40px;"><a href="${ctx}/job/updateJob?flag=1&id=${job.positionId}">
 							<img title="修改" src="${ctx}/images/update.gif"/></a>
 					  </td>
 				</tr>

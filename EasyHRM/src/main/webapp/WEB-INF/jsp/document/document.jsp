@@ -140,25 +140,25 @@
 		      <td><input type="checkbox" id="checkAll" ></td>
 			  <td>标题</td>
 			  <td>创建时间</td>
-			  <td>创建人</td>
+			  <td>文档名</td>
 			  <td>描述</td>
 			  <td>操作</td>
 			  <td>下载</td>
 			</tr>
 			<c:forEach items="${requestScope.documents}" var="document" varStatus="stat">
-				<tr ondblclick="down(${document.id});"  class="main_trbg" align="center" id="data_${stat.index}">
-					<td><input type="checkbox" id="box_${stat.index}" value="${document.id}"></td>
+				<tr ondblclick="down(${document.documentId});"  class="main_trbg" align="center" id="data_${stat.index}">
+					<td><input type="checkbox" id="box_${stat.index}" value="${document.documentId}"></td>
 					 <td>${document.title }</td>
 					 <td>
-					  	<f:formatDate value="${document.createDate}" 
+					  	<f:formatDate value="${document.createDate}"	 
 								type="date" dateStyle="long"/>
 					  </td>
-					  <td>${document.user.username }</td>
+					  <td>${document.filename }</td>
 					  <td>${document.remark }</td>
-					 <td align="center" width="40px;"><a href="${ctx }/document/updateDocument?flag=1&id=${document.id}">
+					 <td align="center" width="40px;"><a href="${ctx }/document/updateDocument?flag=1&id=${document.documentId}">
 							<img title="修改" src="${ctx }/images/update.gif"/></a>
 					  </td>
-					  <td align="center"  width="40px;"><a href="#" id="down_${document.id }">
+					  <td align="center"  width="40px;"><a href="#" id="down_${document.documentId }">
 							<img width="20" height="20" title="下载" src="${ctx }/images/downLoad.png"/></a>
 					  </td>
 				</tr>

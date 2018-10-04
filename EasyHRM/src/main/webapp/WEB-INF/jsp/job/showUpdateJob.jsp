@@ -23,16 +23,24 @@
 	<script type="text/javascript">
 	 $(function(){
 	    	/** 职位表单提交 */
-			$("#jobForm").submit(function(){
+		$("#jobForm").submit(function(){
 				var name = $("#name");
 				var remark = $("#remark");
+				var minSalary = $("#minSalary");
+				var maxSalary = $("#maxSalary");
 				var msg = "";
 				if ($.trim(name.val()) == ""){
 					msg = "职位名称不能为空！";
 					name.focus();
 				}else if ($.trim(remark.val()) == ""){
-					msg = "详细描述不能为空！";
+					msg = "职位描述不能为空！";
 					remark.focus();
+				}else if ($.trim(minSalary.val()) == ""){
+					msg = "最低薪资不能为空！";
+					minSalary.focus();
+				}else if ($.trim(maxSalary.val()) == ""){
+					msg = "最高薪资不能为空！";
+					maxSalary.focus();
 				}
 				if (msg != ""){
 					$.ligerDialog.error(msg);
