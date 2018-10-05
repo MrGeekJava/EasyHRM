@@ -91,7 +91,7 @@ public class NoticeCtrl {
 			 HttpSession session){
 		if(flag.equals("1")){
 			mv.setViewName("notice/showAddNotice");
-		}else{
+		}else{ 
 			Manager user = (Manager) session.getAttribute(HrmConstants.USER_SESSION);
 			notice.setUser(user);
 			noticeService.addNotice(notice);

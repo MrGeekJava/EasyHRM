@@ -5,10 +5,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class Document implements java.io.Serializable{
 
-	private int documentId;					// 编号
-	private int managerId;		
+	private Integer documentId;		// 编号
+	private Integer managerId;		
 	private String title;			// 标题
-	private String fileName;		// 文件名
+	private String filename;		// 文件名
 	private MultipartFile file;		// 文件
 	private String remark;			// 描述
 	private java.util.Date createDate;	// 上传时间
@@ -16,7 +16,6 @@ public class Document implements java.io.Serializable{
 	// 无参数构造器
 	public Document() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	// setter和getter方法
 	public void setTitle(String title){
@@ -26,11 +25,11 @@ public class Document implements java.io.Serializable{
 		return this.title;
 	}
 	
-	public String getFileName() {
-		return fileName;
+	public String getFilename() {
+		return filename;
 	}
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
+	public void setFilename(String filename) {
+		this.filename = filename;
 	}
 	public MultipartFile getFile() {
 		return file;
@@ -56,22 +55,22 @@ public class Document implements java.io.Serializable{
 	public void setUser(Manager user) {
 		this.user = user;
 	}
-	public int getDocumentId() {
+	public Integer getDocumentId() {
 		return documentId;
 	}
-	public void setDocumentId(int documentId) {
+	public void setDocumentId(Integer documentId) {
 		this.documentId = documentId;
 	}
-	public int getManagerId() {
+	public Integer getManagerId() {
 		return managerId;
 	}
-	public void setManagerId(int managerId) {
+	public void setManagerId(Integer managerId) {
 		this.managerId = managerId;
 	}
 	@Override
 	public String toString() {
-		return "Document [documentId=" + documentId + ", managerId=" + managerId + ", title=" + title + ", fileName="
-				+ fileName + ", file=" + file + ", remark=" + remark + ", createDate=" + createDate + ", user=" + user
+		return "Document [documentId=" + documentId + ", managerId=" + managerId + ", title=" + title + ", filename="
+				+ filename + ", file=" + file + ", remark=" + remark + ", createDate=" + createDate + ", user=" + user
 				+ "]";
 	}
 	

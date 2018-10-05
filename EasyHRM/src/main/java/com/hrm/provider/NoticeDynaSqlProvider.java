@@ -1,6 +1,7 @@
 package com.hrm.provider;
 
 import static com.hrm.utils.HrmConstants.NOTICETABLE;
+import static com.hrm.utils.HrmConstants.MANAGERTABLE;
 
 import java.util.Map;
 
@@ -29,6 +30,7 @@ public class NoticeDynaSqlProvider {
 					if(notice.getContent() != null && !notice.getContent().equals("")){
 						WHERE("  content LIKE CONCAT ('%',#{notice.content},'%') ");
 					}
+//						WHERE("  notice.managerId = #{notice.user.managerId}");
 				}
 			}
 		}.toString();
@@ -69,7 +71,7 @@ public class NoticeDynaSqlProvider {
 				if(notice.getContent() != null && !notice.getContent().equals("")){
 					VALUES("content", "#{content}");
 				}
-				if(notice.getUser() != null && notice.getUser().getManagerId() != -1){
+				if(notice.getUser() != null){
 					VALUES("managerId", "#{user.managerId}");
 				}
 			}
@@ -86,9 +88,6 @@ public class NoticeDynaSqlProvider {
 				}
 				if(notice.getContent() != null && !notice.getContent().equals("")){
 					SET(" content = #{content} ");
-				}
-				if(notice.getUser() != null && notice.getUser().getManagerId() != -1){
-					SET(" managerId = #{user.managerId} ");
 				}
 				WHERE(" noticeId = #{noticeId} ");
 			}

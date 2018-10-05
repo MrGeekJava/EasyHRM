@@ -1,14 +1,13 @@
 package com.hrm.entity;
 
-import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class Employee implements java.io.Serializable{
 
 	private Integer empId;			// 员工Id
-	private Integer positionId;		// 职位Id
-	private Integer deptId;			// 部门Id
+	private Dept dept;			// 部门
+	private Position job;		//职位
 	private String name;		// 员工名称
 	private int gender;			//员工性别（1男，0女）
 	private String codeId;		//身份证
@@ -36,27 +35,33 @@ public class Employee implements java.io.Serializable{
 		// TODO Auto-generated constructor stub
 	}
 	// setter和getter方法
+	
 	public Integer getEmpId() {
 		return empId;
 	}
+	public Dept getDept() {
+		return dept;
+	}
+
+	public void setDept(Dept dept) {
+		this.dept = dept;
+	}
+
 	public void setEmpId(Integer empId) {
 		this.empId = empId;
-	}
-	public Integer getPositionId() {
-		return positionId;
-	}
-	public void setPositionId(Integer positionId) {
-		this.positionId = positionId;
-	}
-	public Integer getDeptId() {
-		return deptId;
-	}
-	public void setDeptId(Integer deptId) {
-		this.deptId = deptId;
 	}
 	public String getName() {
 		return name;
 	}
+	
+	public Position getJob() {
+		return job;
+	}
+
+	public void setJob(Position job) {
+		this.job = job;
+	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -132,13 +137,13 @@ public class Employee implements java.io.Serializable{
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
+
 	@Override
 	public String toString() {
-		return "Employee [empId=" + empId + ", positionId=" + positionId + ", deptId=" + deptId + ", name=" + name
-				+ ", gender=" + gender + ", codeId=" + codeId + ", address=" + address + ", postCode=" + postCode
-				+ ", telephone=" + telephone + ", email=" + email + ", party=" + party + ", major=" + major
-				+ ", birthday=" + birthday + ", race=" + race + ", basePay=" + basePay + ", remark=" + remark + "]";
+		return "Employee [empId=" + empId + ", dept=" + dept + ", job=" + job + ", name=" + name + ", gender=" + gender
+				+ ", codeId=" + codeId + ", address=" + address + ", postCode=" + postCode + ", telephone=" + telephone
+				+ ", email=" + email + ", party=" + party + ", major=" + major + ", birthday=" + birthday + ", race="
+				+ race + ", basePay=" + basePay + ", remark=" + remark + "]";
 	}
-	
 
 }

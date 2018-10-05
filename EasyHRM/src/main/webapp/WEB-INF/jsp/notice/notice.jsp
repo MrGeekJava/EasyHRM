@@ -122,7 +122,7 @@
 	  <!-- 数据展示区 -->
 	  <tr valign="top">
 	    <td height="20">
-		  <table width="100%" border="1" cellpadding="5" cellspacing="0" style="border:#c2c6cc 1px solid; border-collapse:collapse;">
+		  <table width="100%" border="1" cellpadding="5" cellspacing="0" style="border:#c2c6cc 1px solid; table-layout:fixed; border-collapse:collapse;">
 		    <tr class="main_trbg_tit" align="center">
 			  <td><input type="checkbox" name="checkAll" id="checkAll"></td>
 			  <td>公告名称</td>
@@ -134,18 +134,18 @@
 			</tr>
 			<c:forEach items="${requestScope.notices}" var="notice" varStatus="stat">
 				<tr id="data_${stat.index}" align="center" class="main_trbg" onMouseOver="move(this);" onMouseOut="out(this);">
-					<td><input type="checkbox" id="box_${stat.index}" value="${notice.id}"></td>
-					 <td>${notice.title }</td>
-					  <td>${notice.content }</td>
+					<td><input type="checkbox" id="box_${stat.index}" value="${notice.noticeId}"></td>
+					 <td >${notice.title }</td>
+					  <td style="text-overflow: ellipsis; width:31em; white-space: nowrap; overflow: hidden;" align="left">${notice.content }</td>
 					  <td>
 					  <f:formatDate value="${notice.createDate}" 
 								type="date" dateStyle="long"/>
 					  </td>
 					  <td>${notice.user.username }</td>
-					 <td align="center" width="40px;"><a href="${ctx }/notice/updateNotice?flag=1&id=${notice.id}">
+					 <td align="center" width="40px;"><a href="${ctx }/notice/updateNotice?flag=1&id=${notice.noticeId}">
 							<img title="修改" src="${ctx }/images/update.gif"/></a>
 					  </td>
-					  <td align="center"  width="40px;"><a href="#" id="prev_${notice.id }">
+					  <td align="center"  width="40px;"><a href="#" id="prev_${notice.noticeId }">
 							<img title="预览" src="${ctx }/images/prev.gif"/></a>
 					  </td>
 				</tr>

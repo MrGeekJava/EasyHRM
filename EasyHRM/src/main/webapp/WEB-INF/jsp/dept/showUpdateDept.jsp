@@ -73,7 +73,7 @@
 		    		<tr>
 		    			<td class="font3 fftd">部门名称：<input type="text" name="name" id="name" size="20" value="${dept.name }"/></td>
 		    			<td class="font3 fftd">详细描述：<input type="text" name="remark" id="remark" size="20" value="${dept.remark }"/></td>
-		    			<td class="font3 fftd">部门职责：<input type="text" name="remark" id="remark" size="40"  value="${dept.duty }"/></td>
+		    			<td class="font3 fftd">部门职责：<input type="text" name="duty" id="duty" size="40"  value="${dept.duty }"/></td>
 		    		</tr>
 		    			
 		    	</table>

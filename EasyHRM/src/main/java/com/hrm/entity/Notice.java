@@ -4,11 +4,10 @@ package com.hrm.entity;
 public class Notice implements java.io.Serializable{
 
 	private Integer noticeId;		// 公告ID
-	private String managerId;		//管理员ID
+	private Manager user;		//管理员ID
 	private String title;   // 标题
 	private String content; // 内容
 	private java.util.Date createDate;  // 发布日期
-	private Manager user;		// 发布人
 	// 无参数构造器
 	public Notice() {
 		super();
@@ -21,11 +20,11 @@ public class Notice implements java.io.Serializable{
 	public void setNoticeId(Integer noticeId) {
 		this.noticeId = noticeId;
 	}
-	public String getManagerId() {
-		return managerId;
+	public Manager getUser() {
+		return user;
 	}
-	public void setManagerId(String managerId) {
-		this.managerId = managerId;
+	public void setUser(Manager user) {
+		this.user = user;
 	}
 	public String getTitle() {
 		return title;
@@ -45,19 +44,10 @@ public class Notice implements java.io.Serializable{
 	public void setCreateDate(java.util.Date createDate) {
 		this.createDate = createDate;
 	}
-		
-	
-	public Manager getUser() {
-		return user;
-	}
-	public void setUser(Manager user) {
-		this.user = user;
-	}
 	@Override
 	public String toString() {
-		return "Notice [noticeId=" + noticeId + ", managerId=" + managerId + ", title=" + title + ", content=" + content
-				+ ", createDate=" + createDate + ", user=" + user + "]";
+		return "Notice [noticeId=" + noticeId + ", user=" + user + ", title=" + title + ", content=" + content
+				+ ", createDate=" + createDate + "]";
 	}
-	
 
 }

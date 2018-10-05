@@ -67,13 +67,13 @@ public class DocumentCtrl {
 	                "/upload/");
 			System.out.println(path);
 			// 上传文件名
-			String fileName = document.getFile().getOriginalFilename();
+			String filename = document.getFile().getOriginalFilename();
 			 // 将上传文件保存到一个目标文件当中
-			document.getFile().transferTo(new File(path+File.separator+ fileName));
+			document.getFile().transferTo(new File(path+File.separator+ filename));
 			
 			// 插入数据库
 			// 设置fileName
-			document.setFileName(fileName);
+			document.setFilename(filename);
 			// 设置关联的User对象
 			Manager user = (Manager) session.getAttribute(HrmConstants.USER_SESSION);
 			document.setUser(user);
@@ -116,6 +116,7 @@ public class DocumentCtrl {
 			 String flag,
 			 @ModelAttribute Document document,
 			 ModelAndView mv){
+		
 		if(flag.equals("1")){
 			// 根据id查询文档
 			Document target = documentService.findDocumentById(document.getDocumentId());
@@ -125,6 +126,7 @@ public class DocumentCtrl {
 			mv.setViewName("document/showUpdateDocument");
 		}else{
 			// 执行修改操作
+			System.out.println("document.getDocumentId()"+document.getDocumentId());
 			documentService.modifyDocument(document);
 			// 设置客户端跳转到查询请求
 			mv.setViewName("redirect:/document/selectDocument");
@@ -145,16 +147,16 @@ public class DocumentCtrl {
 			 HttpSession session) throws Exception{
 		// 根据id查询文档
 		Document target = documentService.findDocumentById(id);
-		String fileName = target.getFileName();
+		String filename = target.getFilename();
 		// 上传文件路径
 		String path = session.getServletContext().getRealPath(
                 "/upload/");
 		// 获得要下载文件的File对象
-		File file = new File(path+File.separator+ fileName);
+		File file = new File(path+File.separator+ filename);
 		// 创建springframework的HttpHeaders对象
 		HttpHeaders headers = new HttpHeaders();  
         // 下载显示的文件名，解决中文名称乱码问题  
-        String downloadFielName = new String(fileName.getBytes("UTF-8"),"iso-8859-1");
+        String downloadFielName = new String(filename.getBytes("UTF-8"),"iso-8859-1");
         // 通知浏览器以attachment（下载方式）打开图片
         headers.setContentDispositionFormData("attachment", downloadFielName); 
         // application/octet-stream ： 二进制流数据（最常见的文件下载）。

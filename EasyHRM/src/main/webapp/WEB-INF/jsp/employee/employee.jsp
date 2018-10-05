@@ -90,29 +90,29 @@
 					  <tr>
 					    <td class="font3">
 					    	职位：
-							    <select name="job_id" style="width:143px;">
+							    <select name="positionId" style="width:143px;">
 					    			<option value="0">--请选择职位--</option>
 					    			<c:forEach items="${requestScope.jobs }" var="job">
-					    				<option value="${job.id }">${job.name }</option>
+					    				<option value="${job.positionId }">${job.name }</option>
 					    			</c:forEach>
 					    		</select>
 					    	姓名：<input type="text" name="name">
-					    	身份证号码：<input type="text" name="cardId" maxlength="18">
+					    	身份证号码：<input type="text" name="codeId" maxlength="18">
 					    </td>
 					  </tr>
 					  <tr>
 					    <td class="font3">
 					    	性别：
-					    		<select name="sex" style="width:143px;">
+					    		<select name="gender" style="width:143px;">
 					    			<option value="0">--请选择性别--</option>
 					    			<option value="1">男</option>
 					    			<option value="2">女</option>
 					    		</select>
-					    	手机：<input type="text" name="phone">
-					    	所属部门：<select  name="dept_id" style="width:100px;">
+					    	手机：<input type="text" name="telephone">
+					    	所属部门：<select  name="deptId" style="width:100px;">
 								   <option value="0">--部门选择--</option>
 								   <c:forEach items="${requestScope.depts }" var="dept">
-					    				<option value="${dept.id }">${dept.name }</option>
+					    				<option value="${dept.deptId }">${dept.name }</option>
 					    			</c:forEach>
 							</select>&nbsp;
 					    	<input type="submit" value="搜索"/>
@@ -139,34 +139,31 @@
 			  <td>邮箱</td>
 			  <td>职位</td>
 			  <td>学历</td>
+			  <td>基本工资</td>
 			  <td>身份证号码</td>
 			  <td>部门</td>
 			  <td>联系地址</td>
-			  <td>建档日期</td>
 			  <td align="center">操作</td>
 			</tr>
 			<c:forEach items="${requestScope.employees}" var="employee" varStatus="stat">
 				<tr id="data_${stat.index}" class="main_trbg" align="center">
-					<td><input type="checkbox" id="box_${stat.index}" value="${employee.id}"></td>
+					<td><input type="checkbox" id="box_${stat.index}" value="${employee.empId}"></td>
 					 <td>${employee.name }</td>
 					  <td>
 					        <c:choose>
-					        	<c:when test="${employee.sex == 1 }">男</c:when>
+					        	<c:when test="${employee.gender == 1 }">男</c:when>
 					        	<c:otherwise>女</c:otherwise>
 					        </c:choose>
 					  </td>
-					  <td>${employee.phone }</td>
+					  <td>${employee.telephone }</td>
 					  <td>${employee.email }</td>
 					  <td>${employee.job.name }</td>
-					  <td>${employee.education }</td>
-					  <td>${employee.cardId }</td>
+					  <td>${employee.major }</td>
+					  <td>${employee.basePay }</td>
+					  <td>${employee.codeId }</td>
 					  <td>${employee.dept.name }</td>
 					  <td>${employee.address }</td>
-					  <td>
-					  	<f:formatDate value="${employee.createDate}" 
-								type="date" dateStyle="long"/>
-					  </td>
-					  <td align="center" width="40px;"><a href="${ctx}/employee/updateEmployee?flag=1&id=${employee.id}">
+					  <td align="center" width="40px;"><a href="${ctx}/employee/updateEmployee?flag=1&empId=${employee.empId}">
 							<img title="修改" src="${ctx}/images/update.gif"/></a>
 					  </td>
 				</tr>

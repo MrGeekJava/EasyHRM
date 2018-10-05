@@ -115,9 +115,9 @@
 			</tr>
 			<c:forEach items="${requestScope.jobs}" var="job" varStatus="stat">
 				<tr id="data_${stat.index}" align="center" class="main_trbg" onMouseOver="move(this);" onMouseOut="out(this);">
-					<td><input type="checkbox" id="box_${stat.index}" value="${job.positionId}"></td>
-					 <td>${job.name }</td>
-					  <td>${job.remark }</td>
+					<td width="50px"><input type="checkbox" id="box_${stat.index}" value="${job.positionId}"></td>
+					 <td width="80px">${job.name }</td>
+					  <td align="left">${job.remark }</td>
 					  <td>${job.minSalary }</td>
 					  <td>${job.maxSalary }</td>
 					 <td align="center" width="40px;"><a href="${ctx}/job/updateJob?flag=1&id=${job.positionId}">

@@ -25,8 +25,8 @@ public interface DocumentMapper {
 	@Results({
 		@Result(id=true,column="noticeId",property="noticeId"),
 		@Result(column="createDate",property="createDate",javaType=java.util.Date.class),
-		@Result(column="managerId",property="manager",
-			one=@One(select="com.hrm.mapper.NoticeMapper.selectById",
+		@Result(column="managerId",property="user",
+			one=@One(select="com.hrm.mapper.UserMapper.selectById",
 		fetchType=FetchType.EAGER))
 	})
 	List<Document> selectByPage(Map<String, Object> params);

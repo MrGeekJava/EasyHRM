@@ -114,7 +114,7 @@
 			</tr>
 			<c:forEach items="${requestScope.depts}" var="dept" varStatus="stat">
 				<tr id="data_${stat.index}" align="center" class="main_trbg" onMouseOver="move(this);" onMouseOut="out(this);">
-					<td><input type="checkbox" id="box_${stat.index}" value="${dept.deptId}"></td>
+					<td width="50px"><input type="checkbox" id="box_${stat.index}" value="${dept.deptId}"></td>
 					 <td>${dept.name }</td>
 					  <td>${dept.remark }</td>
 					  <td>${dept.duty }</td>

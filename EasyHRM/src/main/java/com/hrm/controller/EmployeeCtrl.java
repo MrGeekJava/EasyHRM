@@ -19,7 +19,7 @@ import com.hrm.service.JobService;
 import com.hrm.utils.PageModel;
 
 @Controller("employeeCtrl")
-@RequestMapping("/hrm/employee")
+//@RequestMapping("/hrm/employee")
 public class EmployeeCtrl {
 	
 	@Resource(name="employeeService")
@@ -37,10 +37,10 @@ public class EmployeeCtrl {
 	 * @param employee 模糊查询参数
 	 * @param Model model
 	 * */
-	@RequestMapping("/selectEmployee")
-	 public String selectEmployee(Integer pageIndex, Integer job_id, Integer dept_id, @ModelAttribute Employee employee, Model model){
+	@RequestMapping("/employee/selectEmployee")
+	 public String selectEmployee(Integer pageIndex, Integer positionId, Integer deptId, @ModelAttribute Employee employee, Model model){
 		// 模糊查询时判断是否有关联对象传递，如果有，创建并封装关联对象
-		this.genericAssociation(job_id, dept_id, employee);
+		this.genericAssociation(positionId, deptId, employee);
 		// 创建分页对象
 		PageModel pageModel = new PageModel();
 		// 如果参数pageIndex不为null，设置pageIndex，即显示第几页
@@ -71,10 +71,10 @@ public class EmployeeCtrl {
 	 * @param Employee employee 接收添加参数
 	 * @param ModelAndView mv 
 	 * */
-	@RequestMapping("/addEmployee")
+	@RequestMapping("/employee/addEmployee")
 	 public ModelAndView addEmployee(
 			 String flag,
-			 Integer job_id,Integer dept_id,
+			 Integer positionId,Integer deptId,
 			 @ModelAttribute Employee employee,
 			 ModelAndView mv){
 		if(flag.equals("1")){
@@ -89,7 +89,7 @@ public class EmployeeCtrl {
 			mv.setViewName("employee/showAddEmployee");
 		}else{
 			// 判断是否有关联对象传递，如果有，创建关联对象
-			this.genericAssociation(job_id, dept_id, employee);
+			this.genericAssociation(positionId, deptId, employee);
 			// 添加操作
 			employeeService.addEmployee(employee);
 			// 设置客户端跳转到查询请求
@@ -105,7 +105,7 @@ public class EmployeeCtrl {
 	 * @param String ids 需要删除的id字符串
 	 * @param ModelAndView mv
 	 * */
-	@RequestMapping("/removeEmployee")
+	@RequestMapping("/employee/removeEmployee")
 	 public ModelAndView removeEmployee(String ids,ModelAndView mv){
 		// 分解id字符串
 		String[] idArray = ids.split(",");
@@ -132,7 +132,7 @@ public class EmployeeCtrl {
 	@RequestMapping(value="/employee/updateEmployee")
 	 public ModelAndView updateEmployee(
 			 String flag,
-			 Integer job_id,Integer dept_id,
+			 Integer positionId,Integer deptId,
 			 @ModelAttribute Employee employee,
 			 ModelAndView mv){
 		if(flag.equals("1")){
@@ -150,7 +150,7 @@ public class EmployeeCtrl {
 			mv.setViewName("employee/showUpdateEmployee");
 		}else{
 			// 创建并封装关联对象
-			this.genericAssociation(job_id, dept_id, employee);
+			this.genericAssociation(positionId, deptId, employee);
 			System.out.println("updateEmployee -->> " + employee);
 			// 执行修改操作
 			employeeService.modifyEmployee(employee);
@@ -165,17 +165,17 @@ public class EmployeeCtrl {
 	 * 由于部门和职位在Employee中是对象关联映射，
 	 * 所以不能直接接收参数，需要创建Job对象和Dept对象
 	 * */
-	private void genericAssociation(Integer job_id,
-			Integer dept_id,Employee employee){
-		if(job_id != null){
+	private void genericAssociation(Integer positionId,
+			Integer deptId,Employee employee){
+		if(positionId != null){
 			Position job = new Position();
-			job.setPositionId(job_id);
-//			job.setJob(job);
+			job.setPositionId(positionId);
+			employee.setJob(job);
 		}
-		if(dept_id != null){
+		if(deptId != null){
 			Dept dept = new Dept();
-			dept.setDeptId(dept_id);
-//			employee.setDept(dept);
+			dept.setDeptId(deptId);
+			employee.setDept(dept);
 		}
 	}
 

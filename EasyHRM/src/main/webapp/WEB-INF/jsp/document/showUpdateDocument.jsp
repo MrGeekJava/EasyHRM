@@ -35,7 +35,6 @@
 	        })
 	    });
 			
-			
 		</script>
 	</head>
 	<body>
@@ -56,7 +55,7 @@
 				 <form id="documentForm" name="documentForm" action="${ctx }/document/updateDocument" enctype="multipart/form-data" method="post">
                         <!-- 隐藏表单，flag表示添加标记 -->
     	 			<input type="hidden" name="flag" value="2">
-    	 			<input type="hidden" name="id" value="${document.documentId }">
+    	 			<input type="hidden" name="documentId" value="${document.documentId }">
 				  <table width="100%" border="0" cellpadding="0" cellspacing="10" class="main_tab">
                         
 					    <tr><td class="font3 fftd">

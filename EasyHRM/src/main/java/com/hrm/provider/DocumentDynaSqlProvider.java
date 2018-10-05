@@ -8,11 +8,10 @@ import org.apache.ibatis.jdbc.SQL;
 
 import com.hrm.entity.Document;
 
-/**   
+/**
  * @Description: 文件上传动态SQL语句提供类
- * <br>网站：<a href="http://www.fkit.org">疯狂Java</a> 
- * @author 肖文吉	36750064@qq.com   
- * @version V1.0   
+ * @author Nier
+ *
  */
 public class DocumentDynaSqlProvider {
 	// 分页动态查询
@@ -60,8 +59,8 @@ public class DocumentDynaSqlProvider {
 				if(document.getTitle() != null && !document.getTitle().equals("")){
 					VALUES("title", "#{title}");
 				}
-				if(document.getFileName() != null && !document.getFileName().equals("")){
-					VALUES("filename", "#{fileName}");
+				if(document.getFilename() != null && !document.getFilename().equals("")){
+					VALUES("filename", "#{filename}");
 				}
 				if(document.getRemark() != null && !document.getRemark().equals("")){
 					VALUES("remark", "#{remark}");
@@ -82,15 +81,15 @@ public class DocumentDynaSqlProvider {
 				if(document.getTitle() != null && !document.getTitle().equals("")){
 					SET(" title = #{title} ");
 				}
-				if(document.getFileName() != null && !document.getFileName().equals("")){
-					SET(" filename = #{fileName} ");
+				if(document.getFilename() != null && !document.getFilename().equals("")){
+					SET(" filename = #{filename} ");
 				}
 				if(document.getRemark() != null && !document.getRemark().equals("")){
 					SET("remark = #{remark}");
 				}
-				if(document.getUser() != null && document.getUser().getManagerId() != -1){
-					SET("managerId = #{user.managerId}");
-				}
+//				if(document.getUser() != null && document.getUser().getManagerId() != -1){
+//					SET("managerId = #{user.managerId}");
+//				}
 				WHERE(" documentId = #{documentId} ");
 			}
 		}.toString();

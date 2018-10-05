@@ -84,7 +84,7 @@
 	    		/** 得到需要下载的文档的id */
 	    		var id = this.id.replace("down_","");
 	    		/** 下载该文档 */
-	    		window.location = "${ctx}/document/downLoad?id="+id;
+	    		window.location = "${ctx}/document/downLoad?documentId="+documentId;
 	    	})
 	    	
 	    	
@@ -147,15 +147,15 @@
 			</tr>
 			<c:forEach items="${requestScope.documents}" var="document" varStatus="stat">
 				<tr ondblclick="down(${document.documentId});"  class="main_trbg" align="center" id="data_${stat.index}">
-					<td><input type="checkbox" id="box_${stat.index}" value="${document.documentId}"></td>
+					<td width="50px"><input type="checkbox" id="box_${stat.index}" value="${document.documentId}"></td>
 					 <td>${document.title }</td>
 					 <td>
 					  	<f:formatDate value="${document.createDate}"	 
 								type="date" dateStyle="long"/>
 					  </td>
 					  <td>${document.filename }</td>
-					  <td>${document.remark }</td>
-					 <td align="center" width="40px;"><a href="${ctx }/document/updateDocument?flag=1&id=${document.documentId}">
+					  <td align="left">${document.remark }</td>
+					 <td align="center" width="40px;"><a href="${ctx }/document/updateDocument?flag=1&documentId=${document.documentId}">
 							<img title="修改" src="${ctx }/images/update.gif"/></a>
 					  </td>
 					  <td align="center"  width="40px;"><a href="#" id="down_${document.documentId }">
