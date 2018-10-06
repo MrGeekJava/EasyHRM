@@ -92,31 +92,64 @@
 					    <td class="font3">
 					    	职位：
 							    <select name="positionId" style="width:143px;">
-					    			<option value="-1">--请选择职位--</option>
+					    			<option value="-1">----请选择职位----</option>
 					    			<c:forEach items="${requestScope.jobs }" var="job">
-					    				<option value="${job.positionId }">${job.name }</option>
+					    				<c:choose>
+							    			<c:when test="${requestScope.one.job.positionId == job.positionId }">
+							    				<option value="${job.positionId }" selected>${job.name }</option>
+							    			</c:when>
+							    			<c:otherwise>
+							    				<option value="${job.positionId }">${job.name }</option>
+							    			</c:otherwise>
+							    		</c:choose>
 					    			</c:forEach>
 					    		</select>
-					    	姓名：<input type="text" name="name">
-					    	身份证号码：<input type="text" name="codeId" maxlength="18">
+					    	姓名：<input type="text" name="name" value="${requestScope.one.name}" />
+					    	身份证号码：<input type="text" name="codeId" maxlength="18" value="${requestScope.one.codeId }" />
 					    </td>
 					  </tr>
 					  <tr>
 					    <td class="font3">
 					    	性别：
 					    		<select name="gender" style="width:143px;">
-					    			<option value="-1">--请选择性别--</option>
-					    			<option value="1">男</option>
-					    			<option value="0">女</option>
+					    			<c:choose>
+							    		<c:when test="${requestScope.one.gender == 1 }">
+							    			<option value="1" selected >男</option>
+					    					<option value="0">女</option>
+							    		</c:when>
+							    		<c:when test="${requestScope.one.gender == 0 }">
+							    			<option value="1">男</option>
+					    					<option value="0" selected >女</option>
+							    		</c:when>
+							    		<c:otherwise>
+							    			<option value="-1">----请选择性别----</option>
+							    			<option value="1">男</option>
+					    					<option value="0">女</option>
+							    		</c:otherwise>
+							    	</c:choose>
+					    			
 					    		</select>
-					    	手机：<input type="text" name="telephone">
-					    	所属部门：<select  name="deptId" style="width:100px;">
-								   <option value="-1">--部门选择--</option>
-								   <c:forEach items="${requestScope.depts }" var="dept">
-					    				<option value="${dept.deptId }">${dept.name }</option>
-					    			</c:forEach>
-							</select>&nbsp;
-					    	<input type="submit" value="搜索"/>
+					    	手机：<input type="text" name="telephone" value="${requestScope.one.telephone }">
+					    	&nbsp;所属部门：
+					    	<select  name="deptId" style="width:143px;">
+								<option value="-1">----部门选择----</option>
+					    		<c:forEach items="${requestScope.depts }" var="dept">
+					    			<c:choose>
+							    		<c:when test="${requestScope.one.dept.deptId == dept.deptId }">
+							    			<option value="${dept.deptId }" selected>${dept.name }</option>
+							    		</c:when>
+							    		<c:otherwise>
+							    			<option value="${dept.deptId }">${dept.name }</option>
+							    		</c:otherwise>
+							    	</c:choose>
+					    		</c:forEach>
+							</select>
+					    </td>
+					  </tr>
+					  <tr>
+					  	<td>
+					  	&nbsp;&nbsp;&nbsp;
+					    	<input type="submit" value="搜索"/>&nbsp;
 					    	<input id="delete" type="button" value="删除"/>
 					    </td>
 					  </tr>
@@ -177,7 +210,7 @@
 	  	 <fkjava:pager
 	  	        pageIndex="${requestScope.pageModel.pageIndex}" 
 	  	        pageSize="${requestScope.pageModel.pageSize}" 
-	  	        recordCount="${requestScope.pageModel.recordCount}" 
+	  	        recordCount="${requestScope.pageModel.recordCount}"
 	  	        style="digg"
 	  	        submitUrl="${ctx}/employee/selectEmployee?pageIndex={0}" />
 	  </td></tr>

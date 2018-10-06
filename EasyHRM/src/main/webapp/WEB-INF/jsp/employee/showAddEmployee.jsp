@@ -119,17 +119,17 @@
 		    <tr><td class="font3 fftd">
 		    	<table>
 		    		<tr>
-		    			<td class="font3 fftd">姓名：<input type="text" name="name" id="name" size="20"/></td>
+		    			<td class="font3 fftd">姓&nbsp;&nbsp;&nbsp;名：<input type="text" name="name" id="name" size="20"/></td>
 		    			<td class="font3 fftd">身份证号码：<input type="text" name="codeId" id="codeId" size="20"/></td>
 		    		</tr>
 		    		<tr>
-		    			<td class="font3 fftd">性别：
+		    			<td class="font3 fftd">性&nbsp;&nbsp;&nbsp;别：
 									<select name="gender" style="width:143px;">
 					    			<option value="0">--请选择性别--</option>
 					    			<option value="1">男</option>
 					    			<option value="2">女</option>
 					    		</select></td>
-		    			<td class="font3 fftd">职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位：
+		    			<td class="font3 fftd">职&nbsp;&nbsp;&nbsp;位：
 		    			 <select name="positionId" style="width:143px;">
 					    			<option value="0">--请选择职位--</option>
 					    			<c:forEach items="${requestScope.jobs }" var="job">
@@ -139,8 +139,8 @@
 					    </td>
 		    		</tr>
 		    		<tr>
-		    			<td class="font3 fftd">手机：<input name="telephone" id="telephone" size="20"/></td>
-					<td class="font3 fftd">邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：<input name="email" id="email" size="20"/></td>
+		    			<td class="font3 fftd">手&nbsp;&nbsp;&nbsp;机：<input name="telephone" id="telephone" size="20"/></td>
+					<td class="font3 fftd">邮&nbsp;&nbsp;&nbsp;箱：<input name="email" id="email" size="20"/></td>
 		    		</tr>
 		    		
 		    	</table>
@@ -150,14 +150,14 @@
 			<tr>
 				<td class="font3 fftd">
 					政治面貌：<input name="party" id="party" size="40"/>&nbsp;&nbsp;
-					工&nbsp;&nbsp;&nbsp;&nbsp;资：<input name="basePay" id="basePay" size="20"/></td>
+					工&nbsp;&nbsp;资：<input name="basePay" id="basePay" size="20"/></td>
 			</tr>
 			<tr><td class="main_tdbor"></td></tr>
 			
 			<tr>
 				<td class="font3 fftd">
 					联系地址：<input name="address" id="address" size="40"/>&nbsp;&nbsp;
-					&nbsp;&nbsp;邮政编码：<input name="postCode" id="postCode" size="20"/>
+					邮政编码：<input name="postCode" id="postCode" size="20"/>
 				</td>
 			</tr>
 			<tr><td class="main_tdbor"></td></tr>
@@ -166,7 +166,7 @@
 				<td class="font3 fftd">
 					出生日期：<input class="Wdate" onfocus="WdatePicker({skin:'whyGreen',dateFmt:'yyyy-MM-dd'});" 
 					name="birthday" id="birthday" size="40"/>&nbsp;&nbsp;
-					民&nbsp;&nbsp;&nbsp;&nbsp;族：<input name="race" id="race" size="20"/>
+					民&nbsp;&nbsp;族：<input name="race" id="race" size="20"/>
 				</td>
 			</tr>
 			<tr><td class="main_tdbor"></td></tr>
@@ -180,7 +180,7 @@
 			
 			<tr>
 				<td class="font3 fftd">
-					备&nbsp;&nbsp;&nbsp;&nbsp;注：<input name="remark" id="remark" size="40"/>
+					备&nbsp;&nbsp;注：<input name="remark" id="remark" size="40"/>
 					&nbsp;&nbsp;所属部门：
 					<select  name="dept_id" style="width:100px;">
 						   <option value="0">--部门选择--</option>

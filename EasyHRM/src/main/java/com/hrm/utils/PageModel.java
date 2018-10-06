@@ -48,12 +48,14 @@ public class PageModel {
 		return totalSize;
 	}
 	
-	
 	public int getFirstLimitParam(){
 		return (this.getPageIndex()-1)*this.getPageSize() ;
 	}
 	
-	
-	
+	@Override
+	public String toString() {
+		return "PageModel [recordCount=" + recordCount + ", pageIndex=" + pageIndex + ", pageSize=" + pageSize
+				+ ", totalSize=" + totalSize + "]";
+	}
 	
 }

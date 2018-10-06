@@ -75,10 +75,16 @@
 		    <tr><td class="font3 fftd">
 		    	<table>
 		    		<tr>
-		    			<td class="font3 fftd">部门名称：<input type="text" name="name" id="name" size="20" value="${job.name }"/></td>
-		    			<td class="font3 fftd">详细描述：<input type="text" name="remark" id="remark" size="20" value="${job.remark }"/></td>
+		    			<td class="font3 fftd">职位名称：<input type="text" name="name" id="name" size="20" value="${job.name }"/></td>
 		    		</tr>
-		    			
+		    		<tr>
+		    			<td class="font3 fftd">详细描述：</br>
+		    			<textarea rows="11" cols="60" name="remark" id="remark" size="40" >${job.remark }</textarea></td>
+		    		</tr>
+		    		<tr>
+		    			<td class="font3 fftd">最低薪资：<input type="text" name="minSalary" id="minSalary" size="20" value="${job.minSalary }"/></td>
+		    			<td class="font3 fftd">最高薪资：<input type="text" name="maxSalary" id="maxSalary" size="20" value="${job.maxSalary }"/></td>
+		    		</tr>
 		    	</table>
 		    </td></tr>
 			<tr><td class="main_tdbor"></td></tr>

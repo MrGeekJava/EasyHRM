@@ -36,6 +36,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 		    params.put("pageModel", pageModel);
 	    }
 	    
+	    System.out.println("pageModel:"+pageModel);
+	    
 	    List<Employee> employees = employeeMapper.selectByPage(params);
 	    return employees;
 	}

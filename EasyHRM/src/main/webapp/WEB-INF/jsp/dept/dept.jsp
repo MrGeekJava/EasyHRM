@@ -113,8 +113,8 @@
 			  <td>部门职责</td>
 			  <td align="center">操作</td>
 			</tr>
-			<c:forEach items="${requestScope.depts}" var="dept" varStatus="stat">[[=]]
-				<tr id="data_${stat.index}" align="center" class="main_trbg" onMouseOver="move(this);" onMouseOut="out(this);">
+			<c:forEach items="${requestScope.depts}" var="dept" varStatus="stat">
+				<tr id="data_${stat.index}" align="center" class="main_trbg">
 					<td width="50px"><input type="checkbox" id="box_${stat.index}" value="${dept.deptId}"></td>
 					 <td>${dept.name }</td>
 					  <td>${dept.remark }</td>

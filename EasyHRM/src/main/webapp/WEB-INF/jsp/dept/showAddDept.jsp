@@ -70,11 +70,14 @@
 		    <tr><td class="font3 fftd">
 		    	<table>
 		    		<tr>
-		    			<td class="font3 fftd">部门名称：<input type="text" name="name" id="name" size="20"/></td>
-		    			<td class="font3 fftd">详细描述：<input type="text" name="remark" id="remark" size="20"/></td>
-		    			<td class="font3 fftd">部门职责：<input type="text" name="duty" id="duty" size="40"/></td>
+		    			<td class="font3 fftd">部门名称：<input type="text" name="name" id="name" size="20" /></td>
 		    		</tr>
-		    			
+		    		<tr>
+		    			<td class="font3 fftd">详细描述：</br>
+		    			<textarea rows="11" cols="60" name="remark" id="remark" size="40" ></textarea></td>
+		    			<td class="font3 fftd">部门职责：</br>
+		    			<textarea rows="11" cols="60" name="duty" id="duty" size="40" ></textarea></td>
+		    		</tr>
 		    	</table>
 		    </td></tr>
 			<tr><td class="main_tdbor"></td></tr>

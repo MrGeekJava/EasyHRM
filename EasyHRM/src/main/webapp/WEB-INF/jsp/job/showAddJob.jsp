@@ -74,12 +74,16 @@
 		    <tr><td class="font3 fftd">
 		    	<table>
 		    		<tr>
-		    			<td class="font3 fftd">职位名称：<input type="text" name="name" id="name" size="20"/></td>
-		    			<td class="font3 fftd">详细描述：<input type="text" name="remark" id="remark" size="20"/></td>
-		    			<td class="font3 fftd">最低薪资：<input type="text" name="minSalary" id="minSalary" size="10"/></td>
-		    			<td class="font3 fftd">最高薪资：<input type="text" name="maxSalary" id="maxSalary" size="10"/></td>
+		    			<td class="font3 fftd">职位名称：<input type="text" name="name" id="name" size="20" /></td>
 		    		</tr>
-		    			
+		    		<tr>
+		    			<td class="font3 fftd">详细描述：</br>
+		    			<textarea rows="11" cols="60" name="remark" id="remark" size="40" ></textarea></td>
+		    		</tr>
+		    		<tr>
+		    			<td class="font3 fftd">最低薪资：<input type="text" name="minSalary" id="minSalary" size="20" /></td>
+		    			<td class="font3 fftd">最高薪资：<input type="text" name="maxSalary" id="maxSalary" size="20" /></td>
+		    		</tr>
 		    	</table>
 		    </td></tr>
 			<tr><td class="main_tdbor"></td></tr>

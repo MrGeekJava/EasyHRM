@@ -3,6 +3,7 @@ package com.hrm.controller;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,10 +41,9 @@ public class EmployeeCtrl {
 	@RequestMapping("/employee/selectEmployee")
 	 public String selectEmployee(Integer pageIndex, Integer positionId, Integer deptId, @ModelAttribute Employee employee, Model model){
 		
-		System.out.println("employee -->" + employee);
-		
 		// 模糊查询时判断是否有关联对象传递，如果有，创建并封装关联对象
 		this.genericAssociation(positionId, deptId, employee);
+		
 		// 创建分页对象
 		PageModel pageModel = new PageModel();
 		// 如果参数pageIndex不为null，设置pageIndex，即显示第几页
@@ -59,10 +59,12 @@ public class EmployeeCtrl {
 		List<Employee> employees = employeeService.findEmployee(employee,pageModel);
 		
 		// 设置Model数据
+		model.addAttribute("one", employee);
 		model.addAttribute("employees", employees);
 		model.addAttribute("jobs", jobs);
 		model.addAttribute("depts", depts);
 		model.addAttribute("pageModel", pageModel);
+		
 		// 返回员工页面
 		return "employee/employee";
 		

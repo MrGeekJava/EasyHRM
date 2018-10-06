@@ -22,7 +22,6 @@ public class EmployeeDynaSqlProvider {
 			{
 				SELECT("*");
 				FROM(EMPLOYEETABLE);
-				System.out.println("开始查找");
 				if(params.get("employee") != null){
 					Employee employee = (Employee)params.get("employee");
 					
@@ -52,8 +51,6 @@ public class EmployeeDynaSqlProvider {
 			sql += " limit #{pageModel.firstLimitParam} , #{pageModel.pageSize}  ";
 		}
 		
-		System.out.println(sql);
-		
 		return sql;
 	}	
 	// 动态查询总数量
@@ -64,14 +61,15 @@ public class EmployeeDynaSqlProvider {
 				FROM(EMPLOYEETABLE);
 				if(params.get("employee") != null){
 					Employee employee = (Employee)params.get("employee");
-					if(employee.getDept() != null && employee.getDept().getDeptId() != null && employee.getDept().getDeptId() != 0){
+					
+					if(employee.getDept() != null && employee.getDept().getDeptId() != null && employee.getDept().getDeptId() != -1){
 						WHERE(" deptId = #{employee.dept.deptId} ");
 					}
 					if(employee.getJob() != null && employee.getJob().getPositionId() != -1){
 						WHERE(" positionId = #{employee.job.positionId} ");
 					}
 					if(employee.getName() != null && !employee.getName().equals("")){
-						WHERE("  name LIKE CONCAT ('%',#{employee.name},'%') ");
+						WHERE(" name LIKE CONCAT ('%',#{employee.name},'%') ");
 					}
 					if(employee.getTelephone() != null && !employee.getTelephone().equals("")){
 						WHERE(" telephone LIKE CONCAT ('%',#{employee.telephone},'%') ");
@@ -79,7 +77,7 @@ public class EmployeeDynaSqlProvider {
 					if(employee.getCodeId() != null && !employee.getCodeId().equals("") ){
 						WHERE(" codeId LIKE CONCAT ('%',#{employee.codeId},'%') ");
 					}
-					if(employee.getGender() != null){
+					if(employee.getGender() != null && employee.getGender() != -1){
 						WHERE("gender = #{employee.gender}");
 					}
 				}

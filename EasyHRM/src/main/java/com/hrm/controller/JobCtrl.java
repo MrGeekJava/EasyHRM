@@ -27,7 +27,7 @@ public class JobCtrl {
 	 * */
 	@RequestMapping("/job/selectJob")
 	 public String selectJob(Model model, Integer pageIndex, @ModelAttribute Position job){
-		System.out.println("selectJob -->> " + job);
+
 		PageModel pageModel = new PageModel();
 		if(pageIndex != null){
 			pageModel.setPageIndex(pageIndex);
@@ -91,13 +91,10 @@ public class JobCtrl {
 	 * @param ModelAndView mv
 	 * */
 	@RequestMapping("/job/updateJob")
-	 public ModelAndView updateDpet(
-			 String flag,
-			 @ModelAttribute Position job,
-			 ModelAndView mv){
+	 public ModelAndView updateJob(String flag, Integer id, @ModelAttribute Position job, ModelAndView mv){
 		if(flag.equals("1")){
 			// 根据id查询部门
-			Position target = jobService.findJobById(job.getPositionId());
+			Position target = jobService.findJobById(id);
 			// 设置Model数据
 			mv.addObject("job", target);
 			// 设置跳转到修改页面
