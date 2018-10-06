@@ -9,7 +9,7 @@ public class Employee implements java.io.Serializable{
 	private Dept dept;			// 部门
 	private Position job;		//职位
 	private String name;		// 员工名称
-	private int gender;			//员工性别（1男，0女）
+	private Integer gender;			//员工性别（1男，0女）
 	private String codeId;		//身份证
 	private String address;		// 地址
 	private String postCode;	// 邮政编码
@@ -65,10 +65,10 @@ public class Employee implements java.io.Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getGender() {
+	public Integer getGender() {
 		return gender;
 	}
-	public void setGender(int gender) {
+	public void setGender(Integer gender) {
 		this.gender = gender;
 	}
 	public String getCodeId() {

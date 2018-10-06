@@ -26,13 +26,9 @@ public class DeptCtrl {
 	 * */
 	@RequestMapping("/dept/selectDept")
 	public String selectDept(Model model, Integer pageIndex, @ModelAttribute Dept dept){
-		System.out.println("selectDept -->>");
-		System.out.println("pageIndex = " + pageIndex);
-		System.out.println("dept = " + dept);
+		
 		PageModel pageModel = new PageModel();
-		System.out.println("getPageIndex = " + pageModel.getPageIndex());
-		System.out.println("getPageSize = " + pageModel.getPageSize());
-		System.out.println("getRecordCount = " + pageModel.getRecordCount());
+		
 		if(pageIndex != null){
 			pageModel.setPageIndex(pageIndex);
 		}

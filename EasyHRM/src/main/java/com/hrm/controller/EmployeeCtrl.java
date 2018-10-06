@@ -39,6 +39,9 @@ public class EmployeeCtrl {
 	 * */
 	@RequestMapping("/employee/selectEmployee")
 	 public String selectEmployee(Integer pageIndex, Integer positionId, Integer deptId, @ModelAttribute Employee employee, Model model){
+		
+		System.out.println("employee -->" + employee);
+		
 		// 模糊查询时判断是否有关联对象传递，如果有，创建并封装关联对象
 		this.genericAssociation(positionId, deptId, employee);
 		// 创建分页对象
@@ -47,18 +50,18 @@ public class EmployeeCtrl {
 		if(pageIndex != null){
 			pageModel.setPageIndex(pageIndex);
 		}
+		
 		// 查询职位信息，用于模糊查询
 		List<Position> jobs = jobService.findAllJob();
 		// 查询部门信息 ，用于模糊查询
 		List<Dept> depts = deptService.findAllDept();
 		// 查询员工信息    
 		List<Employee> employees = employeeService.findEmployee(employee,pageModel);
+		
 		// 设置Model数据
 		model.addAttribute("employees", employees);
 		model.addAttribute("jobs", jobs);
-		System.out.println("jobs="+jobs);
 		model.addAttribute("depts", depts);
-		System.out.println("depts="+depts);
 		model.addAttribute("pageModel", pageModel);
 		// 返回员工页面
 		return "employee/employee";
@@ -155,7 +158,6 @@ public class EmployeeCtrl {
 		}else{
 			// 创建并封装关联对象
 			this.genericAssociation(positionId, deptId, employee);
-			System.out.println("updateEmployee -->> " + employee);
 			// 执行修改操作
 			employeeService.modifyEmployee(employee);
 			// 设置客户端跳转到查询请求

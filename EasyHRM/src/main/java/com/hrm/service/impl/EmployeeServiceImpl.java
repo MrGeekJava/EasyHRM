@@ -27,6 +27,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public List<Employee> findEmployee(Employee employee,PageModel pageModel) {
 		/** 当前需要分页的总数据条数  */
 		Map<String,Object> params = new HashMap<>();
+		
 		params.put("employee", employee);
 		int recordCount = employeeMapper.count(params);
 	    pageModel.setRecordCount(recordCount);
@@ -34,6 +35,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	        /** 开始分页查询数据：查询第几页的数据 */
 		    params.put("pageModel", pageModel);
 	    }
+	    
 	    List<Employee> employees = employeeMapper.selectByPage(params);
 	    return employees;
 	}

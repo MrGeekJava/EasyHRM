@@ -22,8 +22,10 @@ public class EmployeeDynaSqlProvider {
 			{
 				SELECT("*");
 				FROM(EMPLOYEETABLE);
+				System.out.println("开始查找");
 				if(params.get("employee") != null){
 					Employee employee = (Employee)params.get("employee");
+					
 					if(employee.getDept() != null && employee.getDept().getDeptId() != null && employee.getDept().getDeptId() != -1){
 						WHERE(" deptId = #{employee.dept.deptId} ");
 					}
@@ -31,7 +33,7 @@ public class EmployeeDynaSqlProvider {
 						WHERE(" positionId = #{employee.job.positionId} ");
 					}
 					if(employee.getName() != null && !employee.getName().equals("")){
-						WHERE("  name LIKE CONCAT ('%',#{employee.name},'%') ");
+						WHERE(" name LIKE CONCAT ('%',#{employee.name},'%') ");
 					}
 					if(employee.getTelephone() != null && !employee.getTelephone().equals("")){
 						WHERE(" telephone LIKE CONCAT ('%',#{employee.telephone},'%') ");
@@ -39,7 +41,7 @@ public class EmployeeDynaSqlProvider {
 					if(employee.getCodeId() != null && !employee.getCodeId().equals("") ){
 						WHERE(" codeId LIKE CONCAT ('%',#{employee.codeId},'%') ");
 					}
-					if(employee.getGender() != -1){
+					if(employee.getGender() != null && employee.getGender() != -1){
 						WHERE("gender = #{employee.gender}");
 					}
 				}
@@ -49,6 +51,8 @@ public class EmployeeDynaSqlProvider {
 		if(params.get("pageModel") != null){
 			sql += " limit #{pageModel.firstLimitParam} , #{pageModel.pageSize}  ";
 		}
+		
+		System.out.println(sql);
 		
 		return sql;
 	}	
@@ -75,7 +79,7 @@ public class EmployeeDynaSqlProvider {
 					if(employee.getCodeId() != null && !employee.getCodeId().equals("") ){
 						WHERE(" codeId LIKE CONCAT ('%',#{employee.codeId},'%') ");
 					}
-					if(employee.getGender() != -1){
+					if(employee.getGender() != null){
 						WHERE("gender = #{employee.gender}");
 					}
 				}
@@ -153,7 +157,7 @@ public class EmployeeDynaSqlProvider {
 					SET(" address = #{address} ");
 				}
 				if(employee.getPostCode()!= null){
-					SET(" post_code = #{postCode} ");
+					SET(" postCode = #{postCode} ");
 				}
 				if(employee.getTelephone()!= null){
 					SET(" telephone = #{telephone} ");

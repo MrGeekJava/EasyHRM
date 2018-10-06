@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fkjava" uri="/pager-tags" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="f" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -20,7 +21,7 @@
 	<script src="${ctx}/js/ligerUI/js/core/base.js" type="text/javascript"></script>
 	<script src="${ctx}/js/ligerUI/js/plugins/ligerDrag.js" type="text/javascript"></script> 
 	<script src="${ctx}/js/ligerUI/js/plugins/ligerDialog.js" type="text/javascript"></script>
-	<script src="${ctx}/js/ligerUI/js/plugins/ligerResizable.jss" type="text/javascript"></script>
+	<script src="${ctx}/js/ligerUI/js/plugins/ligerResizable.js" type="text/javascript"></script>
 	<link href="${ctx}/css/pager.css" type="text/css" rel="stylesheet" />
 	<script type="text/javascript">
 		$(function(){
@@ -112,7 +113,7 @@
 			  <td>部门职责</td>
 			  <td align="center">操作</td>
 			</tr>
-			<c:forEach items="${requestScope.depts}" var="dept" varStatus="stat">
+			<c:forEach items="${requestScope.depts}" var="dept" varStatus="stat">[[=]]
 				<tr id="data_${stat.index}" align="center" class="main_trbg" onMouseOver="move(this);" onMouseOut="out(this);">
 					<td width="50px"><input type="checkbox" id="box_${stat.index}" value="${dept.deptId}"></td>
 					 <td>${dept.name }</td>

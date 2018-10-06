@@ -20,7 +20,7 @@
 	<script src="${ctx}/js/ligerUI/js/core/base.js" type="text/javascript"></script>
 	<script src="${ctx}/js/ligerUI/js/plugins/ligerDrag.js" type="text/javascript"></script> 
 	<script src="${ctx}/js/ligerUI/js/plugins/ligerDialog.js" type="text/javascript"></script>
-	<script src="${ctx}/js/ligerUI/js/plugins/ligerResizable.jss" type="text/javascript"></script>
+	<script src="${ctx}/js/ligerUI/js/plugins/ligerResizable.js" type="text/javascript"></script>
 	<link href="${ctx}/css/pager.css" type="text/css" rel="stylesheet" />
 	<script language="javascript" type="text/javascript" src="${ctx }/js/My97DatePicker/WdatePicker.js"></script>
 	<script type="text/javascript">
@@ -122,19 +122,28 @@
 		    <tr><td class="font3 fftd">
 		    	<table>
 		    		<tr>
-		    			<td class="font3 fftd">姓名：<input type="text" name="name" id="name" size="20"/></td>
-		    			<td class="font3 fftd">身份证号码：<input type="text" name="codeId" id="codeId" size="20"/></td>
+		    			<td class="font3 fftd">姓名：<input type="text" name="name" id="name" size="20" value="${employee.name }" /></td>
+		    			<td class="font3 fftd">身份证号码：<input type="text" name="codeId" id="codeId" size="20" value="${employee.codeId }" /></td>
 		    		</tr>
 		    		<tr>
 		    			<td class="font3 fftd">性别：
 									<select name="gender" style="width:143px;">
-					    			<option value="0">--请选择性别--</option>
-					    			<option value="1">男</option>
-					    			<option value="2">女</option>
+					    			<option value="-1">--请选择性别--</option>
+					    			<c:choose>
+					    				<c:when test="${employee.gender == 1 }">
+					    					<option value="1" selected>男</option>
+					    					<option value="0">女</option>
+					    				</c:when>
+					    				<c:otherwise>
+					    					<option value="1">男</option>
+					    					<option value="0" selected>女</option>
+					    				</c:otherwise>
+					    			</c:choose>
+					    			
 					    		</select></td>
 		    			<td class="font3 fftd">职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位：
 		    			 <select name="positionId" style="width:143px;">
-					    			<option value="0">--请选择职位--</option>
+					    			<option value="${employee.job.positionId }">${employee.job.name }</option>
 					    			<c:forEach items="${requestScope.jobs }" var="job">
 					    				<option value="${job.positionId }">${job.name }</option>
 					    			</c:forEach>
@@ -142,8 +151,8 @@
 					    </td>
 		    		</tr>
 		    		<tr>
-		    			<td class="font3 fftd">手机：<input name="telephone" id="telephone" size="20"/></td>
-					<td class="font3 fftd">邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：<input name="email" id="email" size="20"/></td>
+		    			<td class="font3 fftd">手机：<input name="telephone" id="telephone" size="20" value="${employee.telephone }" /></td>
+					<td class="font3 fftd">邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：<input name="email" id="email" size="20" value="${employee.email }" /></td>
 		    		</tr>
 		    		
 		    	</table>
@@ -152,15 +161,15 @@
 			
 			<tr>
 				<td class="font3 fftd">
-					政治面貌：<input name="party" id="party" size="40"/>&nbsp;&nbsp;
-					<td class="font3 fftd">共&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;资：<input name="basePay" id="basePay" size="20"/></td>
+					政治面貌：<input name="party" id="party" size="40" value="${employee.party }" />&nbsp;&nbsp;
+					<td class="font3 fftd">工&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;资：<input name="basePay" id="basePay" size="20" value="${employee.basePay }" /></td>
 			</tr>
 			<tr><td class="main_tdbor"></td></tr>
 			
 			<tr>
 				<td class="font3 fftd">
-					联系地址：<input name="address" id="address" size="40"/>&nbsp;&nbsp;
-					邮政编码：<input name="postCode" id="postCode" size="20"/>
+					联系地址：<input name="address" id="address" size="40" value="${employee.address }" />&nbsp;&nbsp;
+					邮政编码：<input name="postCode" id="postCode" size="20" value="${employee.postCode }" />
 				</td>
 			</tr>
 			<tr><td class="main_tdbor"></td></tr>
@@ -168,16 +177,15 @@
 			<tr>
 				<td class="font3 fftd">
 					出生日期：<input class="Wdate" onfocus="WdatePicker({skin:'whyGreen',dateFmt:'yyyy-MM-dd'});" 
-					name="birthday" id="birthday" size="40"/>&nbsp;&nbsp;
-					民&nbsp;&nbsp;&nbsp;&nbsp;族：<input name="race" id="race" size="20"/>
+					name="birthday" id="birthday" size="40" value='<f:formatDate value="${employee.birthday }" pattern="yyyy-MM-dd"/>' />&nbsp;&nbsp;
+					民&nbsp;&nbsp;&nbsp;&nbsp;族：<input name="race" id="race" size="20" value="${employee.race }" />
 				</td>
 			</tr>
 			<tr><td class="main_tdbor"></td></tr>
 			
 			<tr>
 				<td class="font3 fftd">
-					所学专业：<input  name="major" id="major" size="40"/>&nbsp;&nbsp;
-					爱&nbsp;&nbsp;&nbsp;&nbsp;好：<input name="hobby" id="hobby" size="20"/>
+					所学专业：<input  name="major" id="major" size="40" value="${employee.major }" />&nbsp;&nbsp;
 				</td>
 			</tr>
 			<tr><td class="main_tdbor"></td></tr>
@@ -187,7 +195,7 @@
 					备&nbsp;&nbsp;&nbsp;&nbsp;注：<input name="remark" id="remark" size="40"/>
 					&nbsp;&nbsp;所属部门：
 					<select  name="dept_id" style="width:100px;">
-						   <option value="0">--部门选择--</option>
+						   <option value="${employee.dept.deptId }">${employee.dept.name }</option>
 						   <c:forEach items="${requestScope.depts }" var="dept">
 			    				<option value="${dept.deptId }">${dept.name }</option>
 			    			</c:forEach>

@@ -18,7 +18,7 @@
 	<script src="${ctx}/js/ligerUI/js/core/base.js" type="text/javascript"></script>
 	<script src="${ctx}/js/ligerUI/js/plugins/ligerDrag.js" type="text/javascript"></script> 
 	<script src="${ctx}/js/ligerUI/js/plugins/ligerDialog.js" type="text/javascript"></script>
-	<script src="${ctx}/js/ligerUI/js/plugins/ligerResizable.jss" type="text/javascript"></script>
+	<script src="${ctx}/js/ligerUI/js/plugins/ligerResizable.js" type="text/javascript"></script>
 	<link href="${ctx}/css/pager.css" type="text/css" rel="stylesheet" />
 	<script type="text/javascript">
 	 $(function(){
@@ -72,8 +72,8 @@
 		    	<table>
 		    		<tr>
 		    			<td class="font3 fftd">部门名称：<input type="text" name="name" id="name" size="20" value="${dept.name }"/></td>
-		    			<td class="font3 fftd">详细描述：<input type="text" name="remark" id="remark" size="20" value="${dept.remark }"/></td>
-		    			<td class="font3 fftd">部门职责：<input type="text" name="duty" id="duty" size="40"  value="${dept.duty }"/></td>
+		    			<td class="font3 fftd">详细描述：<input type="text" name="remark" id="remark" size="20" value="${dept.remark }"/></td></br>
+		    			<td class="font3 fftd">部门职责：<input type="textarea" rows="3" cols="20" name="duty" id="duty" size="40"  value="${dept.duty }"/></td>
 		    		</tr>
 		    			
 		    	</table>
