@@ -101,7 +101,7 @@
 			  			<li><p style="padding-left:60px;line-height:22px;"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="${ctx }/notice/addNotice?flag=1" target="main">添加公告</a></img></p></li>
 			  		</ul>
 			  </p>
-			  <p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="javascript:void(0)" target="main">招聘管理</a></img></p>
+			  <p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="invite/selectInvite" target="main">招聘管理</a></img></p>
 			  <p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="javascript:void(0)" target="main">文档管理</a></img></p>
 				</td>
 		 	 </tr>

@@ -14,7 +14,7 @@ public class Invite implements java.io.Serializable{
 	private Date endDate;			//结束日期
 	private String responsibility;	//岗位职责
 	private String welfare;			//公司福利
-	private int status;				//审核状态（0未审批，1,不通过，2通过）
+	private Integer status;				//审核状态（0未审批，1,不通过，2通过）
 	private String minSalary;		//最低薪资
 	private String maxSalary;		//最高薪资
 	public int getInviteId() {
@@ -83,10 +83,10 @@ public class Invite implements java.io.Serializable{
 	public void setWelfare(String welfare) {
 		this.welfare = welfare;
 	}
-	public int getStatus() {
+	public Integer getStatus() {
 		return status;
 	}
-	public void setStatus(int status) {
+	public void setStatus(Integer status) {
 		this.status = status;
 	}
 	public String getMinSalary() {
