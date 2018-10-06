@@ -14,6 +14,7 @@ public class HrmConstants {
 	public static final String POSITIONTABLE = "position";
 	public static final String MANAGERTABLE = "manager";
 	public static final String INVITETABLE = "invite";
+	public static final String ADDRESSBOOK = "addressbook";
 	
 	// 登录
 	public static final String LOGIN = "loginForm";

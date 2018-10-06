@@ -110,8 +110,8 @@
 		   <tr><td id="navbg6" class="left_nav_closed"><div class="font1">通讯录管理</div></td></tr>
 		  <tr valign="top" id="submenu6" style="display: none">
 		    <td class="left_nav_bgshw tdbtmline" height="50">
-		    	<p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="javascript:void(0)" target="main">内部通讯录</a></img></p>
-			  	<p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="javascript:void(0)" target="main">外部通讯录</a></img></p>
+		    	<p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/addressbook/selectAddressbooks" target="main">查看通讯录</a></img></p>
+			  	<p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/addressbook/addAddressbook" target="main">添加通讯录</a></img></p>
 			</td>
 		  </tr>
 		  <tr><td height="2"></td></tr>

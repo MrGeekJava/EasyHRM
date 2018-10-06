@@ -6,11 +6,27 @@ public class Addressbook implements java.io.Serializable{
 	private int category;			//外部通讯人员分类
 	private int gender;				//性别（1男，2女）
 	private String company;			//所属单位
-	private String settlePhone;		//固定电话
+	private String settledPhone;	//固定电话
 	private String telephone;		//移动电话
 	private String email;			//邮箱
 	private String  remark;			//备注
 	
+	public Addressbook() {
+	}
+
+	public Addressbook(int addressBookId, String name, int category, int gender, String company, String settledPhone,
+			String telephone, String email, String remark) {
+		this.addressBookId = addressBookId;
+		this.name = name;
+		this.category = category;
+		this.gender = gender;
+		this.company = company;
+		this.settledPhone = settledPhone;
+		this.telephone = telephone;
+		this.email = email;
+		this.remark = remark;
+	}
+
 	public int getAddressBookId() {
 		return addressBookId;
 	}
@@ -51,12 +67,12 @@ public class Addressbook implements java.io.Serializable{
 		this.company = company;
 	}
 
-	public String getSettlePhone() {
-		return settlePhone;
+	public String getSettledPhone() {
+		return settledPhone;
 	}
 
-	public void setSettlePhone(String settlePhone) {
-		this.settlePhone = settlePhone;
+	public void setSettledPhone(String settledPhone) {
+		this.settledPhone = settledPhone;
 	}
 
 	public String getTelephone() {
@@ -86,16 +102,8 @@ public class Addressbook implements java.io.Serializable{
 	@Override
 	public String toString() {
 		return "Addressbook [addressBookId=" + addressBookId + ", name=" + name + ", category=" + category + ", gender="
-				+ gender + ", company=" + company + ", settlePhone=" + settlePhone + ", telephone=" + telephone
+				+ gender + ", company=" + company + ", settledPhone=" + settledPhone + ", telephone=" + telephone
 				+ ", email=" + email + ", remark=" + remark + "]";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }
