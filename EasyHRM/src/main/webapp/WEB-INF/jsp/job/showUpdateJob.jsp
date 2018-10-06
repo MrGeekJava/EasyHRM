@@ -70,7 +70,7 @@
     	 <form action="${ctx}/job/updateJob" id="jobForm" method="post">
     	 	<!-- 隐藏表单，flag表示添加标记 -->
     	 	<input type="hidden" name="flag" value="2">
-    	 	<input type="hidden" name="id" value="${job.id }">
+    	 	<input type="hidden" name="positionId" value="${job.positionId }">
 		  <table width="100%" border="0" cellpadding="0" cellspacing="10" class="main_tab">
 		    <tr><td class="font3 fftd">
 		    	<table>

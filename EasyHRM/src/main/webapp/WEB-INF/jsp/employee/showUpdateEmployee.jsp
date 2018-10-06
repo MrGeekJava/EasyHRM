@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="f" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
@@ -24,8 +26,8 @@
 	<script type="text/javascript">
 	$(function(){
 		// 控制文档加载完成以后 选中性别 
-		$("#sex").val("${employee.sex}");
-		$("#job_id").val("${employee.job.id}");
+		$("#gender").val("${employee.gender}");
+		$("#positionId").val("${employee.job.positionId}");
 		
     	/** 员工表单提交 */
 			$("#employeeForm").submit(function(){
@@ -115,7 +117,7 @@
     	 <form action="${ctx}/employee/updateEmployee" id="employeeForm" method="post">
 			<!-- 隐藏表单，flag表示添加标记 -->
     	 	<input type="hidden" name="flag" value="2">
-			<input type="hidden" name="id" value="${employee.id }">
+			<input type="hidden" name="empId" value="${employee.empId }">
 		  <table width="100%" border="0" cellpadding="0" cellspacing="10" class="main_tab">
 		    <tr><td class="font3 fftd">
 		    	<table>

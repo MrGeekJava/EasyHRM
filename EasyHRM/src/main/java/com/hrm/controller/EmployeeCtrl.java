@@ -56,7 +56,9 @@ public class EmployeeCtrl {
 		// 设置Model数据
 		model.addAttribute("employees", employees);
 		model.addAttribute("jobs", jobs);
+		System.out.println("jobs="+jobs);
 		model.addAttribute("depts", depts);
+		System.out.println("depts="+depts);
 		model.addAttribute("pageModel", pageModel);
 		// 返回员工页面
 		return "employee/employee";
@@ -85,6 +87,8 @@ public class EmployeeCtrl {
 			// 设置Model数据
 			mv.addObject("jobs", jobs);
 			mv.addObject("depts", depts);
+			System.out.println("jobs2="+jobs);
+			System.out.println("depts2="+depts);
 			// 返回添加员工页面
 			mv.setViewName("employee/showAddEmployee");
 		}else{
