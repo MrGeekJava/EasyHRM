@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 import com.hrm.entity.Invite;
-import com.hrm.entity.Manager;
+
 import com.hrm.mapper.InviteMapper;
 import com.hrm.service.InviteService;
 import com.hrm.utils.PageModel;
@@ -42,6 +42,29 @@ public class InviteServiceImpl implements InviteService{
 		List<Invite> invites = inviteMapper.selectByPage(params);
 		 
 		return invites;
+	}
+
+	@Override
+	public List<Invite> findInvite(Invite invite, PageModel pageModel) {
+		// TODO Auto-generated method stub
+		/** 当前需要分页的总数据条数  */
+		Map<String,Object> params = new HashMap<>();
+		params.put("invite", invite);
+		int recordCount = inviteMapper.count(params);
+		pageModel.setRecordCount(recordCount);
+		if(recordCount > 0){
+	        /** 开始分页查询数据：查询第几页的数据 */
+		    params.put("pageModel", pageModel);
+	    }
+		List<Invite> invites = inviteMapper.selectByPage(params);
+		 
+		return invites;
+	}
+
+	@Override
+	public void removeInviteById(Integer id) {
+		// TODO Auto-generated method stub
+		inviteMapper.deleteById(id);
 	}
 	
 	

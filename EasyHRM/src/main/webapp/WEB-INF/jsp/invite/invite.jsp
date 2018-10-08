@@ -82,11 +82,11 @@
             <table width="100%" border="0" cellpadding="0" cellspacing="10" class="main_tab">
                 <tr>
                     <td class="fftd">
-                        <form name="empform" method="post" id="empform" action="${ctx}/user/selectUser">
+                        <form name="inviteform" method="post" id="inviteform" action="${ctx}/invite/selectInvite">
                             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                                 <tr>
                                     <td class="font3">
-                                        招聘名称：<input type="text" name="username">
+                                        招聘名称：<input type="text" name="title">
                                         招聘状态：<input type="text" name="status">
                                         <input type="submit" value="搜索"/>
                                         <input id="delete" type="button" value="删除"/>

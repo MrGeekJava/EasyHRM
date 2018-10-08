@@ -6,6 +6,7 @@ import static com.hrm.utils.HrmConstants.INVITETABLE;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectProvider;
 import org.springframework.stereotype.Repository;
@@ -26,6 +27,10 @@ public interface InviteMapper {
 		//根据id查询招聘信息
 		@Select("select * from "+INVITETABLE+"where inviteId=#{inviteId}")
 		Invite selectById(Integer inviteId);
+		
+		// 根据id删除招聘信息
+		@Delete(" delete from "+INVITETABLE+" where inviteId = #{inviteId} ")
+		void deleteById(Integer inviteId);
 		
 		
 		// 根据参数查询招聘总数
